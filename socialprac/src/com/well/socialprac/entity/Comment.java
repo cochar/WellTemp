@@ -10,6 +10,7 @@ import org.nutz.dao.entity.annotation.Table;
 
 @Table("comment")
 public class Comment {
+	
 
 	@Name
 	@Column("id")
