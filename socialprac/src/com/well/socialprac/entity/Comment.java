@@ -27,4 +27,5 @@ public class Comment {
 	
 	@Column("status_id")
 	private int statusId;
+	
 }
