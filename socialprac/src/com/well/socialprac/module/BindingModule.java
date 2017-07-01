@@ -9,6 +9,7 @@ public class BindingModule extends BaseModule {
 	@At("/token")
 	@Ok("json")
 	public String getToken(String id){
+
 		return "success";
 	}
 }
