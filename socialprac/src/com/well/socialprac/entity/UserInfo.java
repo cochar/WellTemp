@@ -3,6 +3,7 @@ package com.well.socialprac.entity;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.EL;
 import org.nutz.dao.entity.annotation.Name;
+import org.nutz.dao.entity.annotation.One;
 import org.nutz.dao.entity.annotation.Prev;
 import org.nutz.dao.entity.annotation.Table;
 
@@ -33,7 +34,15 @@ public class UserInfo {
 	private String openId;
 	
 	@Column("if_practice_member")
-	private String ifPracticeMember;
+	private int ifPracticeMember;
+	
+	@Column("team_id")
+	private String teamId;
+	
+	@One(field="teamId")
+	private TeamInfo team;
+	
+	
 
 	public String getId() {
 		return id;
@@ -91,12 +100,28 @@ public class UserInfo {
 		this.openId = openId;
 	}
 
-	public String getIfPracticeMember() {
+	public int getIfPracticeMember() {
 		return ifPracticeMember;
 	}
 
-	public void setIfPracticeMember(String ifPracticeMember) {
+	public void setIfPracticeMember(int ifPracticeMember) {
 		this.ifPracticeMember = ifPracticeMember;
+	}
+
+	public String getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+
+	public TeamInfo getTeam() {
+		return team;
+	}
+
+	public void setTeam(TeamInfo team) {
+		this.team = team;
 	}
 
 }
