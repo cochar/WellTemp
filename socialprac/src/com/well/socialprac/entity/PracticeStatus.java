@@ -5,6 +5,7 @@ import java.util.Date;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.EL;
 import org.nutz.dao.entity.annotation.Name;
+import org.nutz.dao.entity.annotation.One;
 import org.nutz.dao.entity.annotation.Prev;
 import org.nutz.dao.entity.annotation.Table;
 
@@ -33,6 +34,15 @@ public class PracticeStatus {
 	
 	@Column("forward_number")
 	private int forwardNumber;
+	
+	@Column("data_id")
+	private String dataId;
+	
+	@One(field="userId")
+	private UserInfo user;
+	
+	@One(field="dataId")
+	private PracticeStatusData practiceStatusData;
 
 	public String getId() {
 		return id;
@@ -88,6 +98,30 @@ public class PracticeStatus {
 
 	public void setForwardNumber(int forwardNumber) {
 		this.forwardNumber = forwardNumber;
+	}
+
+	public String getDataId() {
+		return dataId;
+	}
+
+	public void setDataId(String dataId) {
+		this.dataId = dataId;
+	}
+
+	public UserInfo getUser() {
+		return user;
+	}
+
+	public void setUser(UserInfo user) {
+		this.user = user;
+	}
+
+	public PracticeStatusData getPracticeStatusData() {
+		return practiceStatusData;
+	}
+
+	public void setPracticeStatusData(PracticeStatusData practiceStatusData) {
+		this.practiceStatusData = practiceStatusData;
 	}
 	
 }
