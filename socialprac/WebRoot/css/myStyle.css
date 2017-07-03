@@ -1,0 +1,109 @@
+body{
+	background:#8F8F94;
+}
+.mylist {
+	/*border: 1px solid red;*/
+	margin-top: 2px;
+    background-color: #EEEEEE;
+}
+.mylist li {
+	background-color: #FAFAFA;
+	height: 280px;
+	margin-bottom:8px;
+    border: 1px solid #ddd;
+}
+.mylist li {
+    position: relative;
+    padding: 12px;
+    overflow: hidden;
+    /*background:#2980B9;*/
+}
+
+.mylist li .text {
+	padding:6px;
+    overflow: hidden;
+}
+.mytitle{
+	width:100%;
+	height:50px;
+	/*background:#16A085;*/
+	position:relative;
+}
+.mytitle img{
+	width:50px;
+	height: 50px;
+	line-height: 60px;
+	border-bottom: 1px solid #EEEEEE;
+	border-radius: 50%;
+}
+.mytitle .title-name{
+	position: absolute;
+		left:65px;
+		top:5px;
+	font-size: 16px;
+	color:#000000;	
+}
+.mytitle .title-time{
+	position: absolute;
+		left:65px;
+		top:30px;
+	font-size: 12px;
+	color:#666666;
+}
+.mybottom{
+	border-top:1px solid #EEEEEE;
+	width: 80%;
+	
+	height:30px;
+	padding-top:4px;
+	position: absolute;
+		bottom:0;
+		left:10%;
+}
+.mybottom span{
+	font-size: 12px;
+	color:#777777;
+	display:inline-block;
+	width:49%;
+	height:26px;
+	text-align: center;
+	line-height: 26px;
+}
+.mybottom span:nth-child(1){
+	border-right: 1px solid #E0E0E0;
+}
+.mybottom span .iconfont{
+	margin-top:15px;
+}
+/*textarea 美化*/
+.idea{
+  width:100%;
+  height:250px;
+  background:#ffffff;
+  border-bottom-color:#ff6633;   
+  border-bottom-width:0px;
+  border-top-width:0px;
+  border-left-width:0px;
+  border-right-width:0px;   
+  color:#000000;   
+  FONT-SIZE: 14px;   
+  FONT-STYLE:   normal;   
+  FONT-VARIANT:   normal;   
+  FONT-WEIGHT:   normal; 
+  padding:12px;
+  line-height:20px ; 
+  resize: none; 
+  
+  }  
+.titlebar button{
+	height:26px;
+	border: 1px solid #eee;
+	/*background: #007AFF;*/
+	/*44-26/2*/
+	/*margin-top:9px;*/
+	padding: 0;
+	line-height: 26px;
+	position: absolute;
+	right:10px;
+	top:9px;
+}

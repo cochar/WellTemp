@@ -1,0 +1,1189 @@
+[{
+    "slider": {
+        "2": {
+            "img": "data/afficheimg/20151028bgxmup.jpg",
+            "type": "topic"
+        },
+        "4": {
+            "img": "data/afficheimg/20151209tsuigs.jpg",
+            "type": "topic"
+        },
+        "103": {
+            "img": "data/afficheimg/20151207ioydmw.jpg",
+            "type": "article"
+        },
+        "449": {
+            "img": "data/afficheimg/20151116rigyyj.jpg",
+            "type": "goods"
+        },
+        "479": {
+            "img": "data/afficheimg/20151112fniohq.jpg",
+            "type": "goods"
+        },
+        "596": {
+            "img": "data/afficheimg/20151112ffccll.jpg",
+            "type": "goods"
+        },
+        "3863": {
+            "img": "data/afficheimg/20151112gnuyqz.jpg",
+            "type": "goods"
+        },
+        "3891": {
+            "img": "data/afficheimg/20151218trohpj.jpg",
+            "type": "goods"
+        },
+        "3892": {
+            "img": "data/afficheimg/20151112jrmdwi.jpg",
+            "type": "goods"
+        },
+        "http://www.p9line.cn/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuWWnOS6iyI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0NDE1MTY3ODY7fQ==": {
+            "img": "data/afficheimg/20151116bpbhvy.jpg",
+            "type": "search"
+        }
+    },
+    "category": [
+        {
+            "id": "1",
+            "name": "葡萄酒",
+            "children": [
+                {
+                    "id": "2",
+                    "name": "红葡萄酒",
+                    "children": [
+                        {
+                            "id": "107",
+                            "name": "干红"
+                        },
+                        {
+                            "id": "110",
+                            "name": "半干红"
+                        },
+                        {
+                            "id": "92",
+                            "name": "甜红"
+                        },
+                        {
+                            "id": "108",
+                            "name": "半甜红"
+                        }
+                    ]
+                },
+                {
+                    "id": "4",
+                    "name": "白葡萄酒",
+                    "children": [
+                        {
+                            "id": "109",
+                            "name": "干白"
+                        },
+                        {
+                            "id": "95",
+                            "name": "半干白"
+                        },
+                        {
+                            "id": "111",
+                            "name": "甜白"
+                        },
+                        {
+                            "id": "91",
+                            "name": "半甜白"
+                        }
+                    ]
+                },
+                {
+                    "id": "99",
+                    "name": "起泡酒",
+                    "children": [
+                        {
+                            "id": "116",
+                            "name": "干起泡酒"
+                        },
+                        {
+                            "id": "117",
+                            "name": "半干起泡酒"
+                        },
+                        {
+                            "id": "118",
+                            "name": "甜起泡酒"
+                        },
+                        {
+                            "id": "119",
+                            "name": "绝干型起泡酒"
+                        },
+                        {
+                            "id": "120",
+                            "name": "半甜型起泡酒"
+                        }
+                    ]
+                },
+                {
+                    "id": "97",
+                    "name": "桃红葡萄酒",
+                    "children": [
+                        {
+                            "id": "112",
+                            "name": "干型桃红"
+                        },
+                        {
+                            "id": "113",
+                            "name": "半干型桃红"
+                        },
+                        {
+                            "id": "114",
+                            "name": "半甜桃红"
+                        },
+                        {
+                            "id": "115",
+                            "name": "甜型桃红"
+                        }
+                    ]
+                },
+                {
+                    "id": "98",
+                    "name": "热门产地",
+                    "children": [
+                        {
+                            "id": "121",
+                            "name": "法国"
+                        },
+                        {
+                            "id": "122",
+                            "name": "德国"
+                        },
+                        {
+                            "id": "123",
+                            "name": "意大利"
+                        },
+                        {
+                            "id": "124",
+                            "name": "澳大利亚"
+                        },
+                        {
+                            "id": "242",
+                            "name": "智利"
+                        },
+                        {
+                            "id": "243",
+                            "name": "西班牙"
+                        },
+                        {
+                            "id": "289",
+                            "name": "美国"
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "name": "品牌专区",
+                    "children": [
+                        {
+                            "id": "228",
+                            "name": "法尔曼城堡"
+                        },
+                        {
+                            "id": "229",
+                            "name": "都菲城堡"
+                        },
+                        {
+                            "id": "88",
+                            "name": "佩瑞酒庄"
+                        },
+                        {
+                            "id": "89",
+                            "name": "波尔多玛蒙德酒庄"
+                        },
+                        {
+                            "id": "230",
+                            "name": "意大利吉雅"
+                        },
+                        {
+                            "id": "241",
+                            "name": "拉杰克"
+                        },
+                        {
+                            "id": "290",
+                            "name": "拉菲"
+                        },
+                        {
+                            "id": "380",
+                            "name": "阿依伦"
+                        },
+                        {
+                            "id": "382",
+                            "name": "卡曼尼"
+                        },
+                        {
+                            "id": "383",
+                            "name": "嘉米诺"
+                        },
+                        {
+                            "id": "384",
+                            "name": "普兰朵"
+                        },
+                        {
+                            "id": "386",
+                            "name": "拉朗德"
+                        },
+                        {
+                            "id": "396",
+                            "name": "南京人"
+                        },
+                        {
+                            "id": "397",
+                            "name": "贝纳莎古堡"
+                        },
+                        {
+                            "id": "398",
+                            "name": "康廷万多酒庄"
+                        }
+                    ]
+                },
+                {
+                    "id": "5",
+                    "name": "价格区间",
+                    "children": [
+                        {
+                            "id": "211",
+                            "name": "1-49"
+                        },
+                        {
+                            "id": "212",
+                            "name": "50-99"
+                        },
+                        {
+                            "id": "213",
+                            "name": "100-199"
+                        },
+                        {
+                            "id": "214",
+                            "name": "200-299"
+                        },
+                        {
+                            "id": "215",
+                            "name": "300-499"
+                        },
+                        {
+                            "id": "216",
+                            "name": "500-999"
+                        },
+                        {
+                            "id": "217",
+                            "name": "1000-1599"
+                        },
+                        {
+                            "id": "218",
+                            "name": "1500以上"
+                        }
+                    ]
+                },
+                {
+                    "id": "100",
+                    "name": "酒具周边",
+                    "children": [
+                        {
+                            "id": "231",
+                            "name": "酒杯"
+                        },
+                        {
+                            "id": "232",
+                            "name": "醒酒器"
+                        },
+                        {
+                            "id": "235",
+                            "name": "酒刀"
+                        },
+                        {
+                            "id": "236",
+                            "name": "酒架"
+                        },
+                        {
+                            "id": "237",
+                            "name": "酒柜"
+                        },
+                        {
+                            "id": "238",
+                            "name": "酒鼻子"
+                        },
+                        {
+                            "id": "239",
+                            "name": "礼盒"
+                        },
+                        {
+                            "id": "240",
+                            "name": "酒壶"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "49",
+            "name": "白酒",
+            "children": [
+                {
+                    "id": "54",
+                    "name": "产地",
+                    "children": [
+                        {
+                            "id": "158",
+                            "name": "贵州"
+                        },
+                        {
+                            "id": "159",
+                            "name": "四川"
+                        },
+                        {
+                            "id": "162",
+                            "name": "江苏"
+                        },
+                        {
+                            "id": "161",
+                            "name": "安徽"
+                        },
+                        {
+                            "id": "163",
+                            "name": "山西"
+                        },
+                        {
+                            "id": "164",
+                            "name": "北京"
+                        },
+                        {
+                            "id": "201",
+                            "name": "新疆"
+                        },
+                        {
+                            "id": "269",
+                            "name": "河北"
+                        },
+                        {
+                            "id": "276",
+                            "name": "湖南"
+                        },
+                        {
+                            "id": "293",
+                            "name": "河南"
+                        },
+                        {
+                            "id": "295",
+                            "name": "辽宁"
+                        },
+                        {
+                            "id": "296",
+                            "name": "陕西"
+                        },
+                        {
+                            "id": "324",
+                            "name": "台湾"
+                        },
+                        {
+                            "id": "330",
+                            "name": "福建"
+                        },
+                        {
+                            "id": "377",
+                            "name": "湖北"
+                        },
+                        {
+                            "id": "407",
+                            "name": "徐州"
+                        }
+                    ]
+                },
+                {
+                    "id": "52",
+                    "name": "品牌",
+                    "children": [
+                        {
+                            "id": "173",
+                            "name": "茅台"
+                        },
+                        {
+                            "id": "174",
+                            "name": "洋河"
+                        },
+                        {
+                            "id": "175",
+                            "name": "五粮液"
+                        },
+                        {
+                            "id": "176",
+                            "name": "泸州老窖"
+                        },
+                        {
+                            "id": "177",
+                            "name": "剑南春"
+                        },
+                        {
+                            "id": "178",
+                            "name": "汾酒"
+                        },
+                        {
+                            "id": "179",
+                            "name": "口子窖"
+                        },
+                        {
+                            "id": "180",
+                            "name": "国窖"
+                        },
+                        {
+                            "id": "181",
+                            "name": "西凤"
+                        },
+                        {
+                            "id": "182",
+                            "name": "水井坊"
+                        },
+                        {
+                            "id": "191",
+                            "name": "丰谷"
+                        },
+                        {
+                            "id": "186",
+                            "name": "杜康"
+                        },
+                        {
+                            "id": "188",
+                            "name": "古井贡"
+                        },
+                        {
+                            "id": "189",
+                            "name": "迎驾贡酒"
+                        },
+                        {
+                            "id": "193",
+                            "name": "沱牌"
+                        },
+                        {
+                            "id": "198",
+                            "name": "今世缘"
+                        },
+                        {
+                            "id": "210",
+                            "name": "醉倚楼"
+                        },
+                        {
+                            "id": "273",
+                            "name": "双沟"
+                        },
+                        {
+                            "id": "275",
+                            "name": "酒鬼酒"
+                        },
+                        {
+                            "id": "278",
+                            "name": "皖酒"
+                        },
+                        {
+                            "id": "279",
+                            "name": "郎酒"
+                        },
+                        {
+                            "id": "292",
+                            "name": "运酒"
+                        },
+                        {
+                            "id": "294",
+                            "name": "道光廿五"
+                        },
+                        {
+                            "id": "322",
+                            "name": "缘酒"
+                        },
+                        {
+                            "id": "326",
+                            "name": "八八坑道"
+                        },
+                        {
+                            "id": "328",
+                            "name": "项家"
+                        },
+                        {
+                            "id": "329",
+                            "name": "高粱酒"
+                        },
+                        {
+                            "id": "331",
+                            "name": "居上酒坊"
+                        },
+                        {
+                            "id": "333",
+                            "name": "金门高粱"
+                        },
+                        {
+                            "id": "357",
+                            "name": "竹叶青"
+                        },
+                        {
+                            "id": "364",
+                            "name": "玉山三年"
+                        },
+                        {
+                            "id": "375",
+                            "name": "品道庄园"
+                        },
+                        {
+                            "id": "378",
+                            "name": "枝江"
+                        },
+                        {
+                            "id": "379",
+                            "name": "汤沟"
+                        },
+                        {
+                            "id": "387",
+                            "name": "鼎盛李白"
+                        },
+                        {
+                            "id": "389",
+                            "name": "御珍"
+                        },
+                        {
+                            "id": "390",
+                            "name": "老酒"
+                        },
+                        {
+                            "id": "391",
+                            "name": "汉乡"
+                        },
+                        {
+                            "id": "392",
+                            "name": "习酒"
+                        },
+                        {
+                            "id": "394",
+                            "name": "厚工坊"
+                        },
+                        {
+                            "id": "395",
+                            "name": "南京人"
+                        },
+                        {
+                            "id": "404",
+                            "name": "御庆窖藏"
+                        },
+                        {
+                            "id": "406",
+                            "name": "御嘉名"
+                        }
+                    ]
+                },
+                {
+                    "id": "51",
+                    "name": "香型",
+                    "children": [
+                        {
+                            "id": "165",
+                            "name": "浓香型"
+                        },
+                        {
+                            "id": "166",
+                            "name": "酱香型"
+                        },
+                        {
+                            "id": "167",
+                            "name": "清香型"
+                        },
+                        {
+                            "id": "168",
+                            "name": "绵柔型"
+                        },
+                        {
+                            "id": "169",
+                            "name": "凤香型"
+                        },
+                        {
+                            "id": "170",
+                            "name": "米香型"
+                        },
+                        {
+                            "id": "171",
+                            "name": "兼香型"
+                        },
+                        {
+                            "id": "172",
+                            "name": "其他香型"
+                        },
+                        {
+                            "id": "405",
+                            "name": "窖香型"
+                        }
+                    ]
+                },
+                {
+                    "id": "75",
+                    "name": "价格",
+                    "children": [
+                        {
+                            "id": "202",
+                            "name": "1-49"
+                        },
+                        {
+                            "id": "204",
+                            "name": "50-99"
+                        },
+                        {
+                            "id": "205",
+                            "name": "100-199"
+                        },
+                        {
+                            "id": "206",
+                            "name": "200-299"
+                        },
+                        {
+                            "id": "207",
+                            "name": "300-499"
+                        },
+                        {
+                            "id": "208",
+                            "name": "500-999"
+                        },
+                        {
+                            "id": "209",
+                            "name": "1000以上"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "35",
+            "name": "洋酒",
+            "children": [
+                {
+                    "id": "48",
+                    "name": "种类",
+                    "children": [
+                        {
+                            "id": "125",
+                            "name": "威士忌"
+                        },
+                        {
+                            "id": "126",
+                            "name": "伏特加"
+                        },
+                        {
+                            "id": "127",
+                            "name": "白兰地"
+                        },
+                        {
+                            "id": "128",
+                            "name": "力娇酒"
+                        },
+                        {
+                            "id": "129",
+                            "name": "纯麦芽威士金酒"
+                        },
+                        {
+                            "id": "130",
+                            "name": "朗姆酒"
+                        },
+                        {
+                            "id": "141",
+                            "name": "龙舌兰"
+                        },
+                        {
+                            "id": "144",
+                            "name": "开胃酒"
+                        },
+                        {
+                            "id": "157",
+                            "name": "金酒"
+                        },
+                        {
+                            "id": "227",
+                            "name": "其他种类"
+                        },
+                        {
+                            "id": "270",
+                            "name": "预调酒"
+                        }
+                    ]
+                },
+                {
+                    "id": "42",
+                    "name": "品牌",
+                    "children": [
+                        {
+                            "id": "142",
+                            "name": "芝华士"
+                        },
+                        {
+                            "id": "143",
+                            "name": "尊尼获加"
+                        },
+                        {
+                            "id": "145",
+                            "name": "马爹利"
+                        },
+                        {
+                            "id": "150",
+                            "name": "轩尼诗"
+                        },
+                        {
+                            "id": "151",
+                            "name": "百龄坛"
+                        },
+                        {
+                            "id": "152",
+                            "name": "百加得"
+                        },
+                        {
+                            "id": "153",
+                            "name": "金巴利"
+                        },
+                        {
+                            "id": "154",
+                            "name": "人头马"
+                        },
+                        {
+                            "id": "155",
+                            "name": "麦卡伦"
+                        },
+                        {
+                            "id": "156",
+                            "name": "Tanqueray 添加利"
+                        },
+                        {
+                            "id": "267",
+                            "name": "阿斯杜博"
+                        }
+                    ]
+                },
+                {
+                    "id": "47",
+                    "name": "产地",
+                    "children": [
+                        {
+                            "id": "131",
+                            "name": "法国"
+                        },
+                        {
+                            "id": "132",
+                            "name": "英国"
+                        },
+                        {
+                            "id": "134",
+                            "name": "爱尔兰"
+                        },
+                        {
+                            "id": "135",
+                            "name": "墨西哥"
+                        },
+                        {
+                            "id": "136",
+                            "name": "意大利"
+                        },
+                        {
+                            "id": "137",
+                            "name": "白俄罗斯"
+                        }
+                    ]
+                },
+                {
+                    "id": "37",
+                    "name": "价格",
+                    "children": [
+                        {
+                            "id": "219",
+                            "name": "1-49"
+                        },
+                        {
+                            "id": "220",
+                            "name": "50-99"
+                        },
+                        {
+                            "id": "221",
+                            "name": "100-199"
+                        },
+                        {
+                            "id": "222",
+                            "name": "200-299"
+                        },
+                        {
+                            "id": "223",
+                            "name": "300-399"
+                        },
+                        {
+                            "id": "224",
+                            "name": "400-499"
+                        },
+                        {
+                            "id": "225",
+                            "name": "500-999"
+                        },
+                        {
+                            "id": "226",
+                            "name": "1000以上"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "76",
+            "name": "保健酒/黄酒",
+            "children": [
+                {
+                    "id": "80",
+                    "name": "保健酒",
+                    "children": [
+                        {
+                            "id": "348",
+                            "name": "宁夏枸杞"
+                        },
+                        {
+                            "id": "366",
+                            "name": "桃花运"
+                        },
+                        {
+                            "id": "334",
+                            "name": "龟龄集"
+                        }
+                    ]
+                },
+                {
+                    "id": "311",
+                    "name": "黄酒",
+                    "children": [
+                        {
+                            "id": "360",
+                            "name": "女儿红"
+                        },
+                        {
+                            "id": "321",
+                            "name": "沙洲优黄"
+                        },
+                        {
+                            "id": "368",
+                            "name": "越杭"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "399",
+            "name": "啤酒",
+            "children": [
+                {
+                    "id": "400",
+                    "name": "原浆黑啤酒",
+                    "children": []
+                },
+                {
+                    "id": "401",
+                    "name": "产地",
+                    "children": [
+                        {
+                            "id": "402",
+                            "name": "德国"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "list": {
+        "new": [
+            {
+                "id": "3907",
+                "title": "海豹兵生榨椰子汁1.25L",
+                "img": "images/201512/thumb_img/3907_thumb_G_1450289484561.jpg",
+                "minprice": "￥18.0",
+                "maxprice": "￥21.6"
+            },
+            {
+                "id": "3906",
+                "title": "圣罗骑士罗纳河谷干红葡萄酒",
+                "img": "images/201512/thumb_img/3906_thumb_G_1450031702556.jpg",
+                "minprice": "￥629.0",
+                "maxprice": "￥899.0"
+            },
+            {
+                "id": "3905",
+                "title": "勒庞庄干红葡萄酒",
+                "img": "images/201512/thumb_img/3905_thumb_G_1450030909937.jpg",
+                "minprice": "￥1799.0",
+                "maxprice": "￥2158.8"
+            },
+            {
+                "id": "3904",
+                "title": "法国巴黎宫干红葡萄酒",
+                "img": "images/201512/thumb_img/3904_thumb_G_1450030146443.jpg",
+                "minprice": "￥669.0",
+                "maxprice": "￥899.0"
+            },
+            {
+                "id": "3869",
+                "title": "42°泸州老窖金镶玉J09 500ML",
+                "img": "images/201510/thumb_img/3869_thumb_G_1444757251912.jpg",
+                "minprice": "￥168.0",
+                "maxprice": "￥208.0"
+            }
+        ],
+        "hot": [
+            {
+                "id": "3906",
+                "title": "圣罗骑士罗纳河谷干红葡萄酒",
+                "img": "images/201512/thumb_img/3906_thumb_G_1450031702556.jpg",
+                "minprice": "￥629.0",
+                "maxprice": "￥899.0"
+            },
+            {
+                "id": "3905",
+                "title": "勒庞庄干红葡萄酒",
+                "img": "images/201512/thumb_img/3905_thumb_G_1450030909937.jpg",
+                "minprice": "￥1799.0",
+                "maxprice": "￥2158.8"
+            },
+            {
+                "id": "3904",
+                "title": "法国巴黎宫干红葡萄酒",
+                "img": "images/201512/thumb_img/3904_thumb_G_1450030146443.jpg",
+                "minprice": "￥669.0",
+                "maxprice": "￥899.0"
+            },
+            {
+                "id": "3903",
+                "title": "帝纳公爵干红葡萄酒",
+                "img": "images/201512/thumb_img/3903_thumb_G_1450028266864.jpg",
+                "minprice": "￥839.0",
+                "maxprice": "￥1006.8"
+            },
+            {
+                "id": "3857",
+                "title": "佩洛妮干红葡萄酒750ml*2",
+                "img": "images/201511/thumb_img/3857_thumb_G_1446492686975.jpg",
+                "minprice": "￥599.0",
+                "maxprice": "￥1152.0"
+            }
+        ],
+        "qiang": [
+            {
+                "id": "3842",
+                "title": "40.8°口子窖5年400ml",
+                "img": "images/201509/thumb_img/3842_thumb_G_1441740538124.jpg",
+                "minprice": "抢购价：￥99.0",
+                "maxprice": ""
+            },
+            {
+                "id": "669",
+                "title": "46°苏酒1号500ml",
+                "img": "images/201504/thumb_img/669_thumb_G_1428012973133.jpg",
+                "minprice": "抢购价：￥109.0",
+                "maxprice": ""
+            },
+            {
+                "id": "511",
+                "title": "42°洋河蓝色经典天之蓝480ml",
+                "img": "images/201509/thumb_img/511_thumb_G_1441140206031.jpg",
+                "minprice": "抢购价：￥268.0",
+                "maxprice": ""
+            },
+            {
+                "id": "3747",
+                "title": "42°双沟珍宝坊圣坊500ml",
+                "img": "images/201507/thumb_img/3747_thumb_G_1438300581541.jpg",
+                "minprice": "抢购价：￥218.0",
+                "maxprice": ""
+            },
+            {
+                "id": "620",
+                "title": "42°五粮液（上品）500ml",
+                "img": "images/201504/thumb_img/620_thumb_G_1427823046397.jpg",
+                "minprice": "抢购价：￥188.0",
+                "maxprice": ""
+            }
+        ],
+        "jing": [
+            {
+                "id": "624",
+                "title": "42°泸州老窖景花钻蓝三钻500ml",
+                "img": "images/201509/thumb_img/624_thumb_G_1441135652292.jpg",
+                "minprice": "￥328.0",
+                "maxprice": "￥393.6"
+            },
+            {
+                "id": "545",
+                "title": "42°古井御藏雅之藏500ml",
+                "img": "images/201509/thumb_img/545_thumb_G_1443562783057.jpg",
+                "minprice": "￥299.0",
+                "maxprice": "￥358.8"
+            },
+            {
+                "id": "3903",
+                "title": "帝纳公爵干红葡萄酒",
+                "img": "images/201512/thumb_img/3903_thumb_G_1450028266864.jpg",
+                "minprice": "￥839.0",
+                "maxprice": "￥1006.8"
+            },
+            {
+                "id": "3896",
+                "title": "42°砳都二十年陈酿500ml",
+                "img": "images/201512/thumb_img/3896_thumb_G_1448997695249.jpg",
+                "minprice": "￥498.0",
+                "maxprice": "￥599.0"
+            },
+            {
+                "id": "595",
+                "title": "RIO锐澳佐餐鸡尾酒金标460ml*6",
+                "img": "images/201507/thumb_img/595_thumb_G_1435874073361.jpg",
+                "minprice": "￥168.0",
+                "maxprice": "￥201.6"
+            }
+        ]
+    },
+    "city": {
+        "curr": "全国",
+        "list": {
+            "city_list": {
+                "F": [
+                    {
+                        "region_name": "福建",
+                        "region_id": "4",
+                        "pinyin": "fujian"
+                    },
+                    {
+                        "region_name": "福州",
+                        "region_id": "53",
+                        "pinyin": "fz"
+                    }
+                ],
+                "G": [
+                    {
+                        "region_name": "甘肃",
+                        "region_id": "5",
+                        "pinyin": "gs"
+                    },
+                    {
+                        "region_name": "贵州",
+                        "region_id": "8",
+                        "pinyin": "GZ"
+                    }
+                ],
+                "B": [
+                    {
+                        "region_name": "北京",
+                        "region_id": "2",
+                        "pinyin": "beijing"
+                    },
+                    {
+                        "region_name": "北京",
+                        "region_id": "52",
+                        "pinyin": "beijing"
+                    }
+                ],
+                "C": [
+                    {
+                        "region_name": "成都",
+                        "region_id": "322",
+                        "pinyin": "cd"
+                    },
+                    {
+                        "region_name": "常州",
+                        "region_id": "223",
+                        "pinyin": "cz"
+                    }
+                ],
+                "L": [
+                    {
+                        "region_name": "龙岩",
+                        "region_id": "54",
+                        "pinyin": "ly"
+                    }
+                ],
+                "N": [
+                    {
+                        "region_name": "南京",
+                        "region_id": "220",
+                        "pinyin": "nj"
+                    }
+                ],
+                "H": [
+                    {
+                        "region_name": "仁怀市",
+                        "region_id": "1043",
+                        "pinyin": "HR"
+                    }
+                ],
+                "J": [
+                    {
+                        "region_name": "江苏",
+                        "region_id": "16",
+                        "pinyin": "jiansu"
+                    }
+                ],
+                "W": [
+                    {
+                        "region_name": "无锡",
+                        "region_id": "222",
+                        "pinyin": "wx"
+                    }
+                ],
+                "Q": [
+                    {
+                        "region_name": "泉州",
+                        "region_id": "58",
+                        "pinyin": "qz"
+                    }
+                ],
+                "P": [
+                    {
+                        "region_name": "莆田",
+                        "region_id": "57",
+                        "pinyin": "pt"
+                    }
+                ],
+                "S": [
+                    {
+                        "region_name": "石家庄",
+                        "region_id": "138",
+                        "pinyin": "SJZ"
+                    },
+                    {
+                        "region_name": "苏州",
+                        "region_id": "221",
+                        "pinyin": "sunz"
+                    }
+                ],
+                "X": [
+                    {
+                        "region_name": "厦门",
+                        "region_id": "60",
+                        "pinyin": "xiamen"
+                    }
+                ],
+                "Z": [
+                    {
+                        "region_name": "遵义",
+                        "region_id": "119",
+                        "pinyin": "ZY"
+                    },
+                    {
+                        "region_name": "郑州",
+                        "region_id": "149",
+                        "pinyin": "zzh"
+                    }
+                ]
+            },
+            "host_city_list": [
+                {
+                    "region_name": "南京",
+                    "region_id": "220",
+                    "pinyin": "nj"
+                },
+                {
+                    "region_name": "石家庄",
+                    "region_id": "138",
+                    "pinyin": "SJZ"
+                },
+                {
+                    "region_name": "厦门",
+                    "region_id": "60",
+                    "pinyin": "xiamen"
+                }
+            ]
+        }
+    }
+}]
