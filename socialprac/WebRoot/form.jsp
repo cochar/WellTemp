@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<article data-role="article" id="main_article" data-scroll="verticle" class="active" style="top:44px;bottom:0px;">
 					<div class="scroller"> 
 						<form id="formInfo" class="" action="">
-							<textarea class="idea" name="idea" placeholder="分享你们的新动态..."></textarea>
+							<textarea class="idea" name="textContent" placeholder="分享你们的新动态..."></textarea>
 							
 						</form>
 					</div>  
@@ -70,10 +70,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						A.alert('警告','发布内容不能为空！');
 						return false;
 					}else{
+						alert($('#formInfo').serialize());
 						$.ajax({
 							type:"post",
-							url:"",
-							
+							url:"status/save",
+							data: $('#formInfo').serialize()
 						});
 					}
 				});

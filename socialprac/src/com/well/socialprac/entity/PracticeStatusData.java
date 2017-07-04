@@ -6,6 +6,7 @@ import org.nutz.dao.entity.annotation.Name;
 import org.nutz.dao.entity.annotation.Prev;
 import org.nutz.dao.entity.annotation.Table;
 
+//废弃
 @Table("practice_status_data")
 public class PracticeStatusData {
 	
