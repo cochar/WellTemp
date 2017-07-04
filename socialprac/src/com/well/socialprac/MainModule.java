@@ -8,7 +8,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 
 @IocBy(type=ComboIocProvider.class, args={"*js", "ioc/",
     // 这个package下所有带@IocBean注解的类,都会登记上
-                        "*anno", "net.wendal.nutzbook",
+                        "*anno", "com.well.socialprac",
                         "*tx", // 事务拦截 aop
                         "*async"}) // 异步执行aop
 @Modules(scanPackage=true)

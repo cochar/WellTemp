@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.nutz.dao.Cnd;
+import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 
 import com.well.socialprac.entity.TeamInfo;
 import com.well.socialprac.entity.UserInfo;
 
+@IocBean
 @At("score")
 public class ScoreModule extends BaseModule {
 

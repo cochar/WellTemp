@@ -74,7 +74,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						$.ajax({
 							type:"post",
 							url:"status/save",
-							data: $('#formInfo').serialize()
+							data: $('#formInfo').serialize(),
+							success:function(data){
+								if(data=="1")
+									window.location.href = "status/list";
+							}
 						});
 					}
 				});
