@@ -51,7 +51,7 @@ public class StatusModule extends BaseModule {
 	}
 	
 	@At
-	@Ok("jsp:index")
+	@Ok("jsp:jsp.list")
 	public List<PracticeStatus> list(Pager pager,HttpSession session){
 		session.setAttribute("user", "01");
 //		Map<String, Object> result = new HashMap<String, Object>();
