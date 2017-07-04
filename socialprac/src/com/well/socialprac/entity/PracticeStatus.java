@@ -38,6 +38,15 @@ public class PracticeStatus {
 	@Column("data_id")
 	private String dataId;
 	
+	@Column("text_content")
+	private String textContent;
+	
+	@Column("photo_path")
+	private String photoPath;
+	
+	@Column("video_path")
+	private String videoPath;
+	
 	@One(field="userId")
 	private UserInfo user;
 	
@@ -106,6 +115,31 @@ public class PracticeStatus {
 
 	public void setDataId(String dataId) {
 		this.dataId = dataId;
+	}
+	
+
+	public String getTextContent() {
+		return textContent;
+	}
+
+	public void setTextContent(String textContent) {
+		this.textContent = textContent;
+	}
+
+	public String getPhotoPath() {
+		return photoPath;
+	}
+
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+
+	public String getVideoPath() {
+		return videoPath;
+	}
+
+	public void setVideoPath(String videoPath) {
+		this.videoPath = videoPath;
 	}
 
 	public UserInfo getUser() {
