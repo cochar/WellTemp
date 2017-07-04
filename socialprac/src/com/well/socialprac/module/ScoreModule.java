@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.nutz.dao.Cnd;
+import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 
@@ -16,7 +17,7 @@ import com.well.socialprac.entity.UserInfo;
 public class ScoreModule extends BaseModule {
 
 	@At
-	public Map<String,Object> scoreList(){
+	public Map<String,Object> scoreList(Pager pager){
 		Map<String,Object> result=new HashMap<String,Object>();
 //		Sql sqlTeam = Sqls.create("selet score teamScore from team_info order by score desc");
 //		sqlTeam.setCallback(Sqls.callback.entities());
@@ -28,10 +29,10 @@ public class ScoreModule extends BaseModule {
 //		sqlSelf.setEntity(dao.getEntity(Record.class));
 //		dao.execute(sqlSelf);
 //		result.put("team", sqlSelf.getList(Record.class));
-		List<TeamInfo> teamList = dao.query(TeamInfo.class,Cnd.orderBy().desc("score"));
-		List<UserInfo> userList = dao.query(UserInfo.class,Cnd.where("team_id","=",null).desc("score"));
+		List<TeamInfo> teamList = dao.query(TeamInfo.class,Cnd.orderBy().desc("score"),pager);
+		List<UserInfo> userList = dao.query(UserInfo.class,Cnd.where("team_id","=",null).desc("score"),pager);
 		result.put("teamList", teamList);
 		result.put("userList", userList);
-		return result;	
+		return result;
 	}
 }
