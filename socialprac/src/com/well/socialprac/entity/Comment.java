@@ -26,7 +26,7 @@ public class Comment {
 	private Date commentTime;
 	
 	@Column("status_id")
-	private int statusId;
+	private String statusId;
 
 	public String getId() {
 		return id;
@@ -60,11 +60,11 @@ public class Comment {
 		this.commentTime = commentTime;
 	}
 
-	public int getStatusId() {
+	public String getStatusId() {
 		return statusId;
 	}
 
-	public void setStatusId(int statusId) {
+	public void setStatusId(String statusId) {
 		this.statusId = statusId;
 	}
 	
