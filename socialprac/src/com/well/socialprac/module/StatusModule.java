@@ -60,31 +60,9 @@ public class StatusModule extends BaseModule {
 //		Map<String, Object> result = new HashMap<String, Object>();
 		List<PracticeStatus> list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
 		dao.fetchLinks(list, "user");
-		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
+//		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
 //		result.put("list", list);
 		return list;
-	}
-	
-	@At
-	public String comment(Comment comment,HttpSession session) throws Exception{
-		comment.setUserId((String) session.getAttribute("user")); //为测试，暂注释
-		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, comment.getStatusId());
-		practiceStatus.setCommentNumber(practiceStatus.getCommentNumber()+1);
-		comment.setCommentTime(sdf.parse(sdf.format(new Date())));
-		dao.update(practiceStatus);
-		dao.insert(comment);
-		UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
-		user.setScore(user.getScore()+2);
-		dao.fetchLinks(practiceStatus, "user");
-		UserInfo creator = practiceStatus.getUser();
-		creator.setScore(creator.getScore()+2);
-		if(creator.getTeamId()!=null){
-			dao.fetchLinks(creator, "team");
-			TeamInfo team=creator.getTeam();
-			team.setScore(team.getScore()+2);
-		}
-		dao.updateWith(user, "team");
-		return "1";
 	}
 	
 	@At
@@ -104,5 +82,13 @@ public class StatusModule extends BaseModule {
 		}
 		dao.updateWith(user, "team");
 		return "1";
+	}
+	
+	@At
+	public PracticeStatus single(String id){
+		PracticeStatus practiceStatus = new PracticeStatus();
+		practiceStatus = dao.fetch(PracticeStatus.class,id);
+		dao.fetchLinks(practiceStatus, "commentList");
+		return practiceStatus;
 	}
 }

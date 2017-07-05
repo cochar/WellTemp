@@ -1,9 +1,11 @@
 package com.well.socialprac.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.EL;
+import org.nutz.dao.entity.annotation.Many;
 import org.nutz.dao.entity.annotation.Name;
 import org.nutz.dao.entity.annotation.One;
 import org.nutz.dao.entity.annotation.Prev;
@@ -52,6 +54,9 @@ public class PracticeStatus {
 	
 	@One(field="dataId")
 	private PracticeStatusData practiceStatusData;
+	
+	@Many(field="statusId")
+	private List<Comment> commentList;
 
 	public String getId() {
 		return id;
