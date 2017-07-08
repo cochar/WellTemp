@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
+import org.nutz.mvc.annotation.Param;
 
 import com.well.socialprac.entity.Comment;
 import com.well.socialprac.entity.PracticeStatus;
@@ -21,14 +22,15 @@ public class CommentModule extends BaseModule {
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	@At
-	@Ok("jsp:/")
-	public String create(String statusId){
-		return statusId;
+	@Ok("jsp:/comment_text")
+	public String create(String id){
+		return id;
 	}
 	
 	
 	@At
-	public String save(Comment comment,HttpSession session) throws Exception{
+	public String save(@Param("..")Comment comment,HttpSession session) throws Exception{
+		System.out.println("----"+ session.getAttribute("user").toString());
 		comment.setUserId((String) session.getAttribute("user")); //为测试，暂注释
 		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, comment.getStatusId());
 		practiceStatus.setCommentNumber(practiceStatus.getCommentNumber()+1);

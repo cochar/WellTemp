@@ -1,5 +1,6 @@
 body{
 	background:#8F8F94;
+	 font-family: 微软雅黑;
 }
 .mylist {
 	/*border: 1px solid red;*/
@@ -15,7 +16,7 @@ body{
 .mylist li {
     position: relative;
     padding: 12px;
-    overflow: hidden;
+   /* overflow: hidden;*/
     /*background:#2980B9;*/
 }
 
@@ -30,9 +31,10 @@ body{
 	position:relative;
 }
 .mytitle img{
-	width:50px;
-	height: 50px;
-	line-height: 60px;
+	width:40px;
+	height: 40px;
+	margin-top:5px;
+	margin-left:5px;
 	border-bottom: 1px solid #EEEEEE;
 	border-radius: 50%;
 }
@@ -53,9 +55,7 @@ body{
 .mybottom{
 	border-top:1px solid #EEEEEE;
 	width: 80%;
-	
 	height:30px;
-	padding-top:4px;
 	position: absolute;
 		bottom:0;
 		left:10%;
@@ -65,16 +65,45 @@ body{
 	color:#777777;
 	display:inline-block;
 	width:49%;
-	height:26px;
+	height:29px;
 	text-align: center;
-	line-height: 26px;
+	position:relative;
+	/* line-height: 29px; */
+}
+.mybottom b{
+	width:20px;
+	height:20px;
+	/* line-height:20px; */
+	display:inline-block;
+	position:absolute;
+	top:4px;
+	left:19px;
+}
+.mybottom sub{
+	/* width:80px; */
+	height:20px;
+	/* line-height:20px; */
+	display:inline-block;
+	position:absolute;
+	top:6px;
+	left:45px;
+}
+.list_comment{
+	background-image:url("../img/icon.png"); 
+	background-position:2px 2px;
+}
+.list_laud{
+	background-image:url("../img/icon.png"); 
+	background-position:60px 2px;
+}
+.list_lauded{
+	background-image:url("../img/icon.png"); 
+	background-position:40px 2px;
 }
 .mybottom span:nth-child(1){
 	border-right: 1px solid #E0E0E0;
 }
-.mybottom span .iconfont{
-	margin-top:15px;
-}
+
 /*textarea 美化*/
 .idea{
   width:100%;
@@ -106,4 +135,182 @@ body{
 	position: absolute;
 	right:10px;
 	top:9px;
+}
+
+/* 排行榜样式 */
+.rank-title{
+	padding:12px;
+	border-bottom: 1px solid #eee;
+}
+.ran-rank-title {
+	border-color: #ff9a6a;
+    color: rgb(0, 0, 0);
+    height: 16px;
+    
+    padding-left: 12px;
+    border-left: 5px solid rgb(213, 24, 4);
+    font: 16px/16px 微软雅黑;
+}
+.rank-header{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	/* margin-top:12px; */
+	background:rgb(213, 24, 4);
+}
+.rank-header li{
+	height:30px;
+	line-height:30px;
+	
+	float:left;
+	color:#fff;
+	font: 14px 微软雅黑;
+}
+.team-name{
+	width:40%;
+	margin-left:10%;
+	
+}
+.team-integral{
+	width:10%;
+	margin-left:30%;
+	
+}
+.rank-team{
+	width:100%;
+}
+.rank-team ul{
+	width:80%;
+	margin:0 auto;
+}
+.rank-team ul li{
+	height:40px;
+	line-height:40px;
+	border-bottom:1px dashed #eee;
+}
+.team-num{
+	width: 15px; 
+    height: 14px;
+    margin-top:13px;
+    line-height: 14px;
+    text-align: center;
+    font-family: Arial;
+    font-size: 11px;
+    float:left;
+    background-color: #484848;
+    color: #fff;
+    border-radius:2px;
+}
+.team-num-name{
+	 float:left;
+		margin-left:10px;
+		font-weight:normal;
+}
+.team-num-jf{
+	 float:right;
+	 color:#ff9a6a;
+	 margin-right:5px;
+}
+
+
+
+
+
+
+
+/* 上拉刷新，下拉更新样式*/
+
+#wrapper {
+	/*position:absolute; z-index:1;
+	top:45px; bottom:48px; left:0;
+	width:100%;
+	background:#555;
+	overflow:auto;*/
+}
+
+#scroller {
+	position:relative;
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+	float:left;
+	width:100%;
+	padding:0;
+}
+
+#scroller ul {
+	position:relative;
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+#scroller li {
+	padding:0 10px;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	background-color:#fafafa;
+	font-size:14px;
+}
+
+#scroller li > a {
+	display:block;
+}
+
+/**
+ *
+ * 下拉样式 Pull down styles
+ *
+ */
+#pullDown, #pullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+#pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
 }

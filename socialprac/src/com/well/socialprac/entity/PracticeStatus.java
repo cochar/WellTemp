@@ -162,5 +162,13 @@ public class PracticeStatus {
 	public void setPracticeStatusData(PracticeStatusData practiceStatusData) {
 		this.practiceStatusData = practiceStatusData;
 	}
+
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
+	}
 	
 }

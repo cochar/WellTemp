@@ -85,6 +85,7 @@ public class StatusModule extends BaseModule {
 	}
 	
 	@At
+	@Ok("jsp:/comment")
 	public PracticeStatus single(String id){
 		PracticeStatus practiceStatus = new PracticeStatus();
 		practiceStatus = dao.fetch(PracticeStatus.class,id);

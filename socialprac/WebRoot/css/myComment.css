@@ -1,0 +1,37 @@
+/* 赞的颜色ea9518 */
+.comment_text{
+	padding:12px;
+	background:#FFFFFF;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #e6e6e6;
+	min-height:180px;
+	margin-top:6px;
+	margin-bottom: 6px; 
+}
+.comment_text .text{
+	padding:6px;
+    overflow: hidden;
+}
+.comment_content{
+	font-size:14px;
+	padding-top:6px;
+	padding-left:56px;
+    overflow: hidden;
+}
+.commentbar{
+	height:30px;
+	width:100%;
+	padding-left:18px;
+	line-height:30px;
+	background:#fff;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+.commentbar span{
+	padding:2px;
+	border-bottom:3px solid blue;
+}
+.commentBottom{
+	width:100%;
+	height:30px;
+}
