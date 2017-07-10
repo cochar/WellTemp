@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 
+import com.well.BaseModule;
 import com.well.socialprac.entity.UserInfo;
 
 @IocBean

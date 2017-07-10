@@ -1,8 +1,17 @@
-package com.well.socialprac.module;
+package com.well.wechat.module;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
+import org.nutz.weixin.spi.WxHandler;
+import org.nutz.weixin.util.Wxs;
 
 import com.qq.weixin.mp.aes.SHA1;
+import com.well.BaseModule;
 
 @At("/binding")
 public class BindingModule extends BaseModule {
@@ -28,4 +37,15 @@ public class BindingModule extends BaseModule {
 			return echostr;
 		return null;
 	}
+	
+	/*
+    wxHandler是被动请求的主要处理类, 里面写的1234567890就是"接口配置信息"里面提到的"token",
+    */
+	@Inject
+    protected WxHandler wxHandler;
+
+    @At // 拼起来的全路径就是 /weixin/msgin
+    public View msgin(HttpServletRequest req) throws IOException {
+        return Wxs.handle(wxHandler, req, "default"); // 最后面的default,可以不写,只是个标识符.
+    }
 }

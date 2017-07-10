@@ -1,4 +1,4 @@
-package com.well.socialprac;
+package com.well;
 
 import org.nutz.mvc.NutConfig;
 import org.nutz.mvc.Setup;

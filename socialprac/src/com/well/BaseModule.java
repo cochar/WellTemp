@@ -1,4 +1,4 @@
-package com.well.socialprac.module;
+package com.well;
 
 import org.nutz.dao.Dao;
 import org.nutz.ioc.loader.annotation.Inject;

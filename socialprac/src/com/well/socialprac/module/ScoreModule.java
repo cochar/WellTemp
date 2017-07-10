@@ -9,6 +9,7 @@ import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 
+import com.well.BaseModule;
 import com.well.socialprac.entity.TeamInfo;
 import com.well.socialprac.entity.UserInfo;
 
