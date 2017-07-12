@@ -49,6 +49,9 @@ public class PracticeStatus {
 	@Column("video_path")
 	private String videoPath;
 	
+	@Column("display_name")
+	private String displayName;
+
 	@One(field="userId")
 	private UserInfo user;
 	
@@ -145,6 +148,14 @@ public class PracticeStatus {
 
 	public void setVideoPath(String videoPath) {
 		this.videoPath = videoPath;
+	}
+	
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 	public UserInfo getUser() {

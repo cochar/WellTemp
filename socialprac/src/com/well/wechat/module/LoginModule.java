@@ -68,6 +68,7 @@ public class LoginModule extends BaseModule{
         String access_token = resp.getString("access_token");
         resp = wxLogin(prefix).userinfo(openid, access_token);
         // 然后做你想做的事吧...
+        System.out.println("======================用户信息回执内容："+resp.toString());
         return "ok";
     }
     

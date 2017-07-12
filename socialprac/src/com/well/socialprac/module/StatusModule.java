@@ -1,6 +1,7 @@
 package com.well.socialprac.module;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,14 +41,16 @@ public class StatusModule extends BaseModule {
 		System.out.println("==========="+session.getAttribute("user"));
 		UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
 		practiceStatus.setUserId(user.getId());
-		dao.insert(practiceStatus);
+		practiceStatus.setDisplayName(user.getDisplayName());
 		//dao.insertWith(practiceStatus, "practiceStatusData");
 		user.setScore(user.getScore()+3);
 		if(user.getTeamId()!=null){
 			dao.fetchLinks(user, "team");
 			TeamInfo team=user.getTeam();
 			team.setScore(team.getScore()+3);
+			practiceStatus.setDisplayName(team.getName());
 		}
+		dao.insert(practiceStatus);
 		dao.updateWith(user, "team");
 		return "1";
 //		response.sendRedirect("list");
@@ -57,9 +60,10 @@ public class StatusModule extends BaseModule {
 	@Ok("jsp:/list")
 	public List<PracticeStatus> list(Pager pager,HttpSession session){
 		session.setAttribute("user", "41314005");
+		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
 //		Map<String, Object> result = new HashMap<String, Object>();
-		List<PracticeStatus> list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
-		dao.fetchLinks(list, "user");
+		list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
+//		dao.fetchLinks(list, "user");
 //		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
 //		result.put("list", list);
 		return list;
