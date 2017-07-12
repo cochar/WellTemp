@@ -23,13 +23,13 @@ import com.well.utils.MD5Util;
 @At("login")
 public class LoginModule extends BaseModule {
 
-	@At("/authenticate")
-//	@Filters
-	public void authenticate(int ifPracticeMember,String userId,String teamId){
-		if(ifPracticeMember == 1 && dao.fetch(UserInfo.class, Cnd.where("id","=",userId).and("teamId","=",teamId))!=null){
-			
-		}
-	}
+//	@At("/authenticate")
+////	@Filters
+//	public void authenticate(int ifPracticeMember,String userId,String teamId){
+//		if(ifPracticeMember == 1 && dao.fetch(UserInfo.class, Cnd.where("id","=",userId).and("teamId","=",teamId))!=null){
+//			
+//		}
+//	}
 	
 //	@Filters( @By(type=CheckSession.class, args={"token", "/QRCode.jsp"}))
 	@SuppressWarnings("unchecked")
@@ -44,7 +44,8 @@ public class LoginModule extends BaseModule {
 			if(tokenList.contains(token)){
 				session.setAttribute("token", "success");
 				tokenList.remove(token);
-				 return new ViewWrapper(new JspView("/login"),null);
+				CacheUtil.put("tokenList", tokenList);
+				return new ViewWrapper(new JspView("/login"),null);
 			}
 			return new ViewWrapper(new JspView("/QRCode"),null);
 		}else 
@@ -85,6 +86,7 @@ public class LoginModule extends BaseModule {
 		else if(null!=dao.fetch(UserInfo.class,Cnd.where("name","=",user.getName())))
 				return "invalidName";
 		user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
+		user.setIfPracticeMember(0);
 		dao.insert(user);
 		session.setAttribute("user", user.getId());
 		return "success";
