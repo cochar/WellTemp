@@ -20,7 +20,7 @@ import com.well.socialprac.entity.UserInfo;
 
 @At("/wxlogin/")
 @IocBean
-public class LoginModule extends BaseModule{
+public class WechatLoginModule extends BaseModule{
 
     @Inject
     protected PropertiesProxy conf;

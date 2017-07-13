@@ -4,8 +4,12 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 
+import org.nutz.ioc.Ioc;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.mvc.Mvcs;
+
+import com.well.MainSetup;
 
 /**
  * Cache工具类
@@ -15,8 +19,10 @@ import org.nutz.ioc.loader.annotation.IocBean;
 @IocBean
 public class CacheUtil {
 	
-	@Inject
-	private static CacheManager cacheManager;
+//	private static Ioc ioc = Mvcs.getIoc();
+	
+	private static CacheManager cacheManager = MainSetup.ioc.get(CacheManager.class);
+	
 
 	private static final String SYS_CACHE = "sysCache";
 

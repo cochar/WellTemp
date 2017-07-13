@@ -1,5 +1,6 @@
 package com.well.socialprac.module;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,8 +20,9 @@ import com.well.socialprac.entity.TeamInfo;
 import com.well.socialprac.entity.UserInfo;
 import com.well.utils.CacheUtil;
 import com.well.utils.MD5Util;
+import com.well.wechat.handler.DefaultWxHandler;
 
-@At("login")
+@At("")
 public class LoginModule extends BaseModule {
 
 //	@At("/authenticate")
@@ -32,29 +34,30 @@ public class LoginModule extends BaseModule {
 //	}
 	
 //	@Filters( @By(type=CheckSession.class, args={"token", "/QRCode.jsp"}))
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	@Filters()
 	@Ok("jsp:/login")
-	@At("")
+	@At
 	public View toLogin(String token,HttpSession session){
-		if(null!=session.getAttribute("token"))
+		if("success".equals(session.getAttribute("token")))
 			return new ViewWrapper(new JspView("/login"),null);
-		else if(token!=null){
-			List<String> tokenList = (List<String>) CacheUtil.get("tokenList");
-			if(tokenList.contains(token)){
+		if(token!=null){
+//			List<String> tokenList = new ArrayList<String>();
+//			tokenList = (List<String>) CacheUtil.get("tokenList");
+			if(DefaultWxHandler.tokenListGlobal.contains(token)){
 				session.setAttribute("token", "success");
-				tokenList.remove(token);
-				CacheUtil.put("tokenList", tokenList);
+				DefaultWxHandler.tokenListGlobal.remove(token);
+//				CacheUtil.put("tokenList", tokenList);
 				return new ViewWrapper(new JspView("/login"),null);
 			}
 			return new ViewWrapper(new JspView("/QRCode"),null);
-		}else 
-		return new ViewWrapper(new JspView("/QRCode"),null);
+		}else return new ViewWrapper(new JspView("/QRCode"),null);
 	}
 	
 //	@Filters( @By(type=CheckSession.class, args={"token", "/QRCode.jsp"}))
 	@Filters()
 	@Ok("json")
+	@At
 	public String login(String password,String userName,HttpSession session){
 		if(session.getAttribute("token")==null)
 			return "noToken";
@@ -70,6 +73,7 @@ public class LoginModule extends BaseModule {
 //	@Filters( @By(type=CheckSession.class, args={"token", "/QRCode.jsp"}))
 	@Filters()
 	@Ok("json")
+	@At
 	public String register(UserInfo user,HttpSession session,String identity){
 		if(session.getAttribute("token")==null)
 			return "noToken";
@@ -93,6 +97,7 @@ public class LoginModule extends BaseModule {
 	}
 	
 	@Ok("jsp:/QRCode")
+	@At
 	public void logout(HttpSession session){
 		session.removeAttribute("user");
 		session.removeAttribute("token");

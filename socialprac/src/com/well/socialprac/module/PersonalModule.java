@@ -19,7 +19,7 @@ import com.well.socialprac.entity.UserInfo;
 public class PersonalModule extends BaseModule {
 
 	@At
-	public UserInfo me(HttpSession session){
+	public UserInfo info(HttpSession session){
 //		Map<String,Object> result = new HashMap<String,Object>();
 		UserInfo user = dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
 		dao.fetchLinks(user,"team");

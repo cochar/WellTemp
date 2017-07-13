@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
 import org.nutz.weixin.spi.WxHandler;
@@ -14,6 +15,7 @@ import com.qq.weixin.mp.aes.SHA1;
 import com.well.BaseModule;
 
 @At("/binding")
+@IocBean
 public class BindingModule extends BaseModule {
 
 	@At("/token")
