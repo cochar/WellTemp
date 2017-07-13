@@ -1,11 +1,3 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglibs.jsp"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!-- HTML5文件 -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,8 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<video id="video" autoplay=""></video>
 							<input type="file" name="pic" id="pic" accept="image/*" class="upload-input" />
 							 -->
-							 <input type="file" />
+								<input type="file" accept="image/*;" capture/>
 								<input type="file" accept="image/*;capture=camera" />
+								<input type="file" accept="video/*" capture="camcorder">
 							
 						</form>
 					</div>  
@@ -52,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!--- third --->
 		<script src="${ctx }/assets/third/jquery/jquery-2.1.3.min.js"></script>
-		<<script src="${ctx }/assets/third/jquery/jquery.mobile.custom.min.js"></script>
+		<script src="${ctx }/assets/third/jquery/jquery.mobile.custom.min.js"></script>
 		<script src="${ctx }/assets/third/iscroll/iscroll-probe.js"></script>
 		<script src="${ctx }/assets/third/arttemplate/template-native.js"></script>
 		<!-- agile -->
@@ -60,8 +53,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!--- bridge --->
 		<script type="text/javascript" src="${ctx }/assets/bridge/exmobi.js"></script>
 		<script type="text/javascript" src="${ctx }/assets/bridge/agile.exmobi.js"></script>
-		<%-- <!-- app -->
-		<script type="text/javascript" src="${ctx }/assets/app/js/app.js"></script>  --%>
+		<!-- app -->
+		<script type="text/javascript" src="${ctx }/assets/app/js/app.js"></script>
 		<script>
 			$(function(){
 				var textarea_height=$(".idea").offset().top;

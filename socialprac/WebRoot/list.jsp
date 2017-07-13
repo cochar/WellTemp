@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="${ctx }/css/myStyle.css">
 		<!--iscroll 滚动插件 -->
 		<script type="application/javascript" src="${ctx }/isrcoll/iscroll.js"></script>
-		<link rel="stylesheet" href="${ctx }/isrcoll/scrollbar.css">
+		<link rel="stylesheet" href="${ctx }/isrcoll/scrollbar.css">  
 	</head>
 	<body class="animated zoomIn">
 		<div id="section_container">
@@ -47,12 +47,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    	<a class="tab" data-role="tab" href="#group_article" data-toggle="article">个人</a>
 				    </div>
 				</header>
-				<article data-role="article" id="normal_article" data-scroll="verticle" class="active" style="top:44px;bottom:0px;">
-					<div id="wrapper">
-					<div class="scroller"> 
-						<div id="pullDown">
+				<!-- data-scroll="verticle" -->
+				<article data-role="article" id="normal_article"  class="active" style="top:44px;bottom:0px;">
+					<div class="wrapper">
+					 <div class="scroller"> 
+						 <div id="pullDown">
 							<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-						</div>
+						</div> 
 						<ul class="mylist" id="thelist">
 								<c:forEach items="${obj}" var="it" varStatus="row">		
 								        <li>
@@ -83,14 +84,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								        </li>
 								        
 						</ul>  
-						<div id="pullUp">
+						 <div id="pullUp">
 							<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
-						</div>	  
-					</div> 
+						</div> 	  
+					 </div>
 					</div> 
 				</article>
 				<!-- 排行榜 -->
-				<article data-role="article" id="border_article" data-scroll="verticle" style="top:88px;bottom:0px;">
+				<article data-role="article" id="border_article"  style="top:88px;bottom:0px;">
 					
 					<div class="scroller">
 						<div class="rank-title">
@@ -232,11 +233,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					location.href="${ctx}/comment/create?id="+id;
 				}				
 			}
-		
+			
 		
 		</script>
-		<script type="text/javascript">
-			var myScroll,
+		 <script type="text/javascript">
+			var myScroll, 
 				pullDownEl, pullDownOffset,
 				pullUpEl, pullUpOffset,
 				generatedCount = 0;
@@ -332,13 +333,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 				});
-				
 				setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+				
 			}
 			
 			//初始化绑定iScroll控件 
-			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-			document.addEventListener('DOMContentLoaded', loaded, false); 
+			 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			document.addEventListener('DOMContentLoaded', loaded, false);  
 			
 		</script>
 	</body>
