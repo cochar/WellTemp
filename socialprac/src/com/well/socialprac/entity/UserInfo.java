@@ -18,11 +18,14 @@ public class UserInfo {
 	@Column("name")
 	private String name;
 	
+	@Column("display_name")
+	private String displayName;
+	
 	@Column("school")
 	private String school;
 	
-	@Column("class_no")
-	private String classNo;
+//	@Column("class_no")
+//	private String classNo;
 	
 	@Column("phone")
 	private String phone;
@@ -39,6 +42,11 @@ public class UserInfo {
 	@Column("team_id")
 	private String teamId;
 	
+	@Column("password")
+	private String password;
+	
+	private String teamName;
+
 	@One(field="teamId")
 	private TeamInfo team;
 	
@@ -60,6 +68,14 @@ public class UserInfo {
 		this.name = name;
 	}
 
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
 	public String getSchool() {
 		return school;
 	}
@@ -68,13 +84,13 @@ public class UserInfo {
 		this.school = school;
 	}
 
-	public String getClassNo() {
-		return classNo;
-	}
-
-	public void setClassNo(String classNo) {
-		this.classNo = classNo;
-	}
+//	public String getClassNo() {
+//		return classNo;
+//	}
+//
+//	public void setClassNo(String classNo) {
+//		this.classNo = classNo;
+//	}
 
 	public String getPhone() {
 		return phone;
@@ -116,6 +132,22 @@ public class UserInfo {
 		this.teamId = teamId;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getTeamName() {
+		return teamName;
+	}
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	
 	public TeamInfo getTeam() {
 		return team;
 	}

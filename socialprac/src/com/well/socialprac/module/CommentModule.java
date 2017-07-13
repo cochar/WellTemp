@@ -10,6 +10,7 @@ import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
 
+import com.well.BaseModule;
 import com.well.socialprac.entity.Comment;
 import com.well.socialprac.entity.PracticeStatus;
 import com.well.socialprac.entity.TeamInfo;
