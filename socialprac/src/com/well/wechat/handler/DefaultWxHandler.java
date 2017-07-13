@@ -80,9 +80,9 @@ public String tokenGen(int length) {
             int temp = random.nextInt(2) % 2 == 0 ? 65 : 97;  
             val += (char)(random.nextInt(26) + temp);  
         } else if( "num".equalsIgnoreCase(charOrNum) ) {  
-            val += String.valueOf(random.nextInt(10)).toLowerCase();  
+            val += String.valueOf(random.nextInt(10));  
         }  
     }  
-    return val;  
+    return val.toLowerCase();  
 }  
 }
