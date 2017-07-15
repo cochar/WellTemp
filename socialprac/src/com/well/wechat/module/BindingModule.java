@@ -18,7 +18,7 @@ import com.well.BaseModule;
 @IocBean
 public class BindingModule extends BaseModule {
 
-	@At("/token")
+//	@At("/token")
 	public String getToken(String signature,String timestamp,String nonce,String echostr) throws Exception{
 
 		//
