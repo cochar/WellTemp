@@ -18,6 +18,7 @@ import org.nutz.mvc.annotation.Param;
 
 import com.well.BaseModule;
 import com.well.socialprac.entity.PracticeStatus;
+import com.well.socialprac.entity.PraiseMap;
 import com.well.socialprac.entity.TeamInfo;
 import com.well.socialprac.entity.UserInfo;
 
@@ -103,10 +104,13 @@ public class StatusModule extends BaseModule {
 	}
 	@At
 	public String praise(String id,HttpSession session){
+		String userId = (String) session.getAttribute("user");
+		if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",id).and("userId","=",userId)))
+			return "0";
 		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, id);
 		practiceStatus.setPraiseNumber(practiceStatus.getPraiseNumber()+1);
 		dao.update(practiceStatus);
-		UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
+		UserInfo user=dao.fetch(UserInfo.class,userId);
 		user.setScore(user.getScore()+1);
 		dao.fetchLinks(practiceStatus, "user");
 		UserInfo creator = practiceStatus.getUser();

@@ -31,7 +31,7 @@ public class UserInfo {
 	private String phone;
 	
 	@Column("score")
-	private String score;
+	private int score;
 	
 	@Column("open_id")
 	private String openId;
@@ -100,11 +100,11 @@ public class UserInfo {
 		this.phone = phone;
 	}
 
-	public String getScore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setScore(String score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 

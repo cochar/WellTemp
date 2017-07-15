@@ -61,10 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="mytitle">
 							        		<img src="${ctx }/img/309.JPG" alt="头像" />
 							        		<div class="title-name">
-							        			${it.displayName}
+							        			${it.userId}
 							        		</div>
 							        		<div class="title-time">
-							        			<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
+							        			<fmt:formatDate value="${it.commentTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
 							        		</div>
 							        	</div>
 							        	<div class="comment_content">

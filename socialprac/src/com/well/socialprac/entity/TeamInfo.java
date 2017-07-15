@@ -32,7 +32,7 @@ public class TeamInfo {
 	private Date endTime;
 	
 	@Column("score")
-	private String score;
+	private int score;
 	
 	@Column("contact_id")
 	private String contactId;
@@ -88,11 +88,11 @@ public class TeamInfo {
 		this.endTime = endTime;
 	}
 
-	public String getScore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setScore(String score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 
