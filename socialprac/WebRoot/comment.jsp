@@ -38,36 +38,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="comment_text">
 							<div class="mytitle">
 				        		<img src="${ctx }/img/309.JPG" alt="头像" />
-				        		<div class="title-name">猎聘说的都是</div>
-				        		<div class="title-time">2016-6-6 14:12</div>
+				        		<div class="title-name">${obj.displayName }</div>
+				        		<div class="title-time">
+				        			<fmt:formatDate value="${obj.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
+				        		</div>
 				        	</div>
 				        	<div class="text">
-				            	Silder组件不会自动初始化，可以使用A.Slider(#id, opts)方式调用
+				            	${obj.textContent }
 				            </div>
 				            <div class="photo"></div>
 						</div>
 						<div class="commentbar">
-							<span>评论</span>
+							<span id="p1">评论</span>
+							<span id="p2" onclick="spark('${obj.id}')">我来两句</span>
+							<div style="clear:both"></div>
 						</div>
 						<div class="commentList">
 							<ul>
+								<c:forEach items="${obj.commentList}" var="it" varStatus="row">	
 								<li>
 									<div class="comment_text">
 										<div class="mytitle">
 							        		<img src="${ctx }/img/309.JPG" alt="头像" />
-							        		<div class="title-name">猎聘说的都是</div>
-							        		<div class="title-time">2016-6-6 14:12</div>
+							        		<div class="title-name">
+							        			${it.displayName}
+							        		</div>
+							        		<div class="title-time">
+							        			<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
+							        		</div>
 							        	</div>
 							        	<div class="comment_content">
-							            	Silder组件不会自动初始化，可以使用A.Slider(#id, opts)方式调用
+							            	${it.textContent }
 							            </div>
 							            <div class="photo"></div>
 									</div>
 								</li>
-								<li></li>
-								<li>
-									
-								</li>
+								</c:forEach>
+								
 							</ul>
 						</div>
 					</div>  
@@ -120,6 +127,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				});
 			});
+			function spark(id){
+				location.href="${ctx}/comment/create?id="+id;
+				
+			}
 		</script>
 		
 	</body>

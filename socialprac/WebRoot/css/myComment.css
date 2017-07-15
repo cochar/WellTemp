@@ -27,9 +27,14 @@
 	border-top:1px solid #eee;
 	border-bottom:1px solid #eee;
 }
-.commentbar span{
+.commentbar #p1{
 	padding:2px;
 	border-bottom:3px solid blue;
+}
+.commentbar #p2{
+	padding-right:20px;
+	float:right;
+	color:orange;
 }
 .commentBottom{
 	width:100%;

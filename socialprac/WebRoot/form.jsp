@@ -21,6 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="${ctx }/assets/component/timepicker/timepicker.css">
 		<link rel="stylesheet" href="${ctx }/assets/app/css/app.css">
 		<link rel="stylesheet" href="${ctx }/css/myStyle.css">
+		<style>
+			input[type="file"] {
+			 width:50px;
+			 height:100px;
+			
+			}
+		
+		</style>
 	</head>
 	<body>
 		<div id="section_container">
@@ -37,12 +45,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="scroller"> 
 						<form id="formInfo" class="" action="">
 							<textarea class="idea" name="textContent" placeholder="分享你们的新动态..."></textarea>
-							<!-- <input type="file" name="photo"/>
-							<video id="video" autoplay=""></video>
-							<input type="file" name="pic" id="pic" accept="image/*" class="upload-input" />
-							 -->
-							 <input type="file" />
-								<input type="file" accept="image/*;capture=camera" />
+							
+							
+							<input type="file" accept="image/*;capture=camera" />
 							
 						</form>
 					</div>  
@@ -93,15 +98,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			
 		</script>
-		<script>
-		  /*   var video_element=document.getElementById('video');
-		    if(navigator.getUserMedia){ // opera应使用opera.getUserMedianow
-		          navigator.getUserMedia('video',success,error);  //success是回调函数,当然你也可以直接在此写一个匿名函数
-		    }
-		    function success(stream){
-		         video_element.src=stream;
-		    } */
-		    </script>
 		
 	</body>
 </html>

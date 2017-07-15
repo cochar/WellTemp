@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</header>
 				<!-- data-scroll="verticle" -->
 				<article data-role="article" id="normal_article"  class="active" style="top:44px;bottom:0px;">
-					<div class="wrapper">
+					<div id="wrapper">
 					 <div class="scroller"> 
 						 <div id="pullDown">
 							<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
-								            	<span onclick="laud('${it.id}')"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span>
+								            	<span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span>
 								            </div>
 								        </li>
 								</c:forEach>       
@@ -193,11 +193,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- 个人中心  -->
 				<article data-role="article" id="group_article" data-scroll="verticle" style="top:88px;bottom:0px;">
 					<div class="scroller">
-						
+						<div class="team">
+			        		<img src="${ctx }/img/309.JPG" alt="头像" />
+			        		<span class="teamName">liukexin</span>
+			        		
+			        	</div>
+			        	<div class="jifen">
+			        		<span id="j1">团队积分</span>
+			        		<span id="j2">250</span>
+			        	</div>
+			        	<div class="jieshao">
+			        		<p>
+			        			克里夫兰在20世纪50年代曾拥有多达90余万的人口，然而在随后的数十年中人口不断流失，至美国2000年人口普查，克里夫兰市区人口下降至478,403。最新的美国2010年人口普查显示，克里夫兰市区人口进一步下降到396,815，为美国第45大城市，俄亥俄州第二大城市。它是幅员数县、俄亥俄最大的都会区，大克里夫兰的中心（面积随定义方式不同而改变）。克里夫兰-Elyria-Mentor 都会区2011年人口2,068,283，是美国第28大都会区。如果以克里夫兰-Akron-Elyria作为单位，人口可达到2,871,084（2011年），排名上升至第16位。
+			        		
+			        		</p>
+			        	
+			        	
+			        	</div>
 					</div>						
 				</article>
 				
 			</section>
+			<%-- <input id="lastPage" value="${page.lastPage}" class="lastPage"  type="hidden" > --%>
+			<input id="pageNo" value="1" class="pageNo" type="hidden" >
 		</div>
 		
 		<!--- third --->
@@ -220,10 +238,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				location.href="${ctx }/form.jsp";
 				//$("body").addClass("animated fadeInLeftBig");
 			}
-			function laud(id){
-				$("#laud").removeClass("list_laud").addClass("list_lauded");
-				var $parent=$("#laud").parent();
-				$parent.css("color","ea9518");
+			function laud(id,s){
+				$.ajax({
+					url:"${ctx}/status/praise?id="+id,
+					success:function(result){
+						if(result=='1'){
+							var b=$(s).children("#laud");
+							b.removeClass("list_laud").addClass("list_lauded");
+							var $parent=b.parent();
+							$parent.css("color","ea9518");
+						}
+					}
+					
+				});
+				
 			}
 			function commentNew(id,commentNum){
 				//如果有评论的话
@@ -248,15 +276,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 */
 			function pullDownAction () {
 				setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-					var el, li, i;
+					/* var el, li, i;
 					el = document.getElementById('thelist');
 			
 					for (i=0; i<3; i++) {
 						li = document.createElement('li');
 						li.innerText = 'Generated row ' + (++generatedCount);
 						el.insertBefore(li, el.childNodes[0]);
-					}
-					
+					} */
+					location.href="${ctx}/status/list";
 					myScroll.refresh();		//数据加载完成后，调用界面更新方法   Remember to refresh when contents are loaded (ie: on ajax completion)
 				}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 			}
@@ -267,15 +295,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 */
 			function pullUpAction () {
 				setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-					var el, li, i;
+					/* var el, li, i;
 					el = document.getElementById('thelist');
 			
 					for (i=0; i<3; i++) {
 						li = document.createElement('li');
 						li.innerText = 'Generated row ' + (++generatedCount);
 						el.appendChild(li, el.childNodes[0]);
-					}
+					} */
 					
+					ajaxLoad();
 					myScroll.refresh();		// 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
 				}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 			}
@@ -325,11 +354,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if (pullDownEl.className.match('flip')) {
 							pullDownEl.className = 'loading';
 							pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
-							pullDownAction();	// Execute custom function (ajax call?)
+							pullDownAction(); 	// Execute custom function (ajax call?)
+							/* ajaxLoad(); */
 						} else if (pullUpEl.className.match('flip')) {
 							pullUpEl.className = 'loading';
 							pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
-							pullUpAction();	// Execute custom function (ajax call?)
+							 pullUpAction(); 	// Execute custom function (ajax call?)
+													
 						}
 					}
 				});
@@ -341,6 +372,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 			document.addEventListener('DOMContentLoaded', loaded, false);  
 			
+		</script>
+		<script>
+		function ajaxLoad(){
+			/* var n = true; */
+			/* if($("#lastPage").val()=='false'){ */
+				/* $.mytoast({text: "正在加载，请稍后...",type: "success"}); */
+				/* n = false; */
+				$.ajax({
+					url:"${ctx}/status/scrollUp?pageNo="+$("#pageNo").val(),
+					async:false,
+					dataType:"json",
+					success:function(result){
+						var jsonObj = eval("(" + result + ")");
+						  for (var k in jsonObj) {
+						  /*   alert(k + " : " + jsonObj[k].textContent); */
+						  
+						  var content='<li><div class="mytitle"><img src="" alt="头像" />'+
+						  			'<div class="title-name">'+jsonObj[k].displayName+'</div><div class="title-time">'+
+			        		'</div></div>'+
+			        		
+			        	
+			            '<div class="text" onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')">'+jsonObj[k].textContent+'</div>'+
+			           '<div class="photo"></div><div class="mybottom">'+
+			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'+
+			            	'<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
+						    
+						     
+			            	$("#thelist").append(content);
+						    
+						  }  
+						$("#pageNo").val(parseInt($("#pageNo").val())+1);
+						/* var last = result.substring(result.indexOf('<input id="lastPage" value="') + '<input id="lastPage" value="'.length,result.indexOf('" class="lastPage"  type="'));
+						$("#lastPage").val(last);
+						var page = result.substring(result.indexOf('<input id="pageNo" value="') + '<input id="pageNo" value="'.length,result.indexOf('" class="pageNo" type="'));
+						$("#pageNo").val(page);
+						var label = '<div id="context">';
+						result = result.substring(result.indexOf(label) + label.length,result.indexOf('<div class="footReturn">'));
+						$("#context").append(result); */
+				}});
+			}
+			/* if(n){
+				$.mytoast({text: "没有可加载的数据...",type: "notice"});
+			}
+		} */
+		
 		</script>
 	</body>
 </html>

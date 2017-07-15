@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<article data-role="article" id="main_article" data-scroll="verticle" class="active" style="top:44px;bottom:0px;">
 					<div class="scroller"> 
 						<form id="formInfo" class="" action="">
-							<input type="hidden" value="${obj}" name="statusId">
+							<input type="hidden" id="statusId" value="${obj}" name="statusId">
 							<textarea class="idea" name="textContent" placeholder="写评论..."></textarea>
 							
 						</form>
@@ -69,6 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					$('#fbbutton').removeClass("disable").css("background","#007AFF");
 				});
 				$('#fbbutton').click(function(){
+					var id=$("#statusId").val();
 					var idea=$(".idea").val();
 					if(idea==''){
 						A.alert('警告','评论内容不能为空！');
@@ -81,9 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							data: $('#formInfo').serialize(),
 							dataType:"text",
 							success:function(data){
-								alert("-----"+data);
+								
 								if(data=="1"){
-									alert('---------');
+									location.href="${ctx}/status/single?id="+id;	
 								}
 									//window.location.href = "status/list";
 							}

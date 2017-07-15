@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONArray;
+
 import org.nutz.dao.Cnd;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -58,7 +60,8 @@ public class StatusModule extends BaseModule {
 	
 	@At
 	@Ok("jsp:/list")
-	public List<PracticeStatus> list(Pager pager,HttpSession session){
+	public List<PracticeStatus> list(int pageNo,HttpSession session){
+		Pager pager = dao.createPager(pageNo+1, 1);
 		session.setAttribute("user", "41314005");
 		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
 //		Map<String, Object> result = new HashMap<String, Object>();
@@ -69,6 +72,35 @@ public class StatusModule extends BaseModule {
 		return list;
 	}
 	
+	@At
+	@Ok("json")
+	public String scrollUp(int pageNo,HttpSession session){
+		Pager pager = dao.createPager(pageNo+1, 1);
+		session.setAttribute("user", "41314005");
+		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
+//		Map<String, Object> result = new HashMap<String, Object>();
+		list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
+//		dao.fetchLinks(list, "user");
+//		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
+//		result.put("list", list);
+		JSONArray jsArr = JSONArray.fromObject(list);  
+		System.out.println("==="+jsArr);
+		return jsArr.toString();
+	}
+	
+	
+	public String toJson(List<PracticeStatus> list){
+		String json = "{v:[";
+		for(int i = 0 ; i < list.size();i++){
+		   json = json + list.get(i).toString();
+		   if(i != list.size()-1){
+		          json = json + ",";
+		   }
+		}
+		json = json + "]}";
+		return json;		
+		
+	}
 	@At
 	public String praise(String id,HttpSession session){
 		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, id);
