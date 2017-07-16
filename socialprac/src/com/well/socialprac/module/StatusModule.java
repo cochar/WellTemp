@@ -83,6 +83,7 @@ public class StatusModule extends BaseModule {
 //		dao.fetchLinks(list,"praiseList");
 		for(PracticeStatus ps:list){
 			ps.setIfPraised(0);
+			ps.setPicList(stringToJson(ps.getPhotoPath()));
 			if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",ps.getId()).and("userId","=",userId)))
 				ps.setIfPraised(1);
 		}
@@ -107,13 +108,20 @@ public class StatusModule extends BaseModule {
 	@Ok("json")
 	public String scrollUp(int pageNo,HttpSession session){
 		Pager pager = dao.createPager(pageNo+1, 1);
-		session.setAttribute("user", "41314005");
+		String userId = (String) session.getAttribute("user");
+//		session.setAttribute("user", "41314005");
 		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
 //		Map<String, Object> result = new HashMap<String, Object>();
 		list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
 //		dao.fetchLinks(list, "user");
 //		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
 //		result.put("list", list);
+		for(PracticeStatus ps:list){
+			ps.setIfPraised(0);
+			ps.setPicList(stringToJson(ps.getPhotoPath()));
+			if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",ps.getId()).and("userId","=",userId)))
+				ps.setIfPraised(1);
+		}
 		JSONArray jsArr = JSONArray.fromObject(list);  
 		System.out.println("==="+jsArr);
 		return jsArr.toString();
@@ -251,4 +259,14 @@ public class StatusModule extends BaseModule {
 		return null;
 	}
 	
+	private List<String> stringToJson(String str){
+		List<String> list= new ArrayList<String>();
+		String[] strArray = str.split(",");
+		if(strArray!=null){
+		for(String s:strArray){
+			list.add(s);
+		}
+		}
+		return list;
+	}
 }
