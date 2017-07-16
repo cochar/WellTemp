@@ -115,10 +115,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="team-num-jf">${team.score}</span>
 								</li>
 								</c:forEach>
-<<<<<<< HEAD
-=======
-								
->>>>>>> branch 'master' of https://github.com/cochar/WellTemp.git
 							</ul>
 						</div>
 						
@@ -141,10 +137,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="team-num-jf">${user.score}</span>
 								</li>
 								</c:forEach>
-<<<<<<< HEAD
-=======
-								
->>>>>>> branch 'master' of https://github.com/cochar/WellTemp.git
 							</ul>
 						</div>
 					</div>
