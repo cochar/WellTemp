@@ -130,7 +130,7 @@
 			var repassword=$("#repassword").val();
 			
 			if(name==""){
-				$(".tishi").html("用户名不能为空！");
+				$(".tishi").html("学号不能为空！");
 				return false;
 			}
 			if(teamName==""){
