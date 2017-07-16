@@ -60,6 +60,11 @@ public class PracticeStatus {
 	
 	@Many(field="statusId")
 	private List<Comment> commentList;
+	
+	@Many(field="statusId")
+	private List<PraiseMap> praiseList;
+	
+	private int ifPraised;
 
 	public String getId() {
 		return id;
@@ -180,6 +185,22 @@ public class PracticeStatus {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+
+	public List<PraiseMap> getPraiseList() {
+		return praiseList;
+	}
+
+	public void setPraiseList(List<PraiseMap> praiseList) {
+		this.praiseList = praiseList;
+	}
+
+	public int getIfPraised() {
+		return ifPraised;
+	}
+
+	public void setIfPraised(int ifPraised) {
+		this.ifPraised = ifPraised;
 	}
 	
 }
