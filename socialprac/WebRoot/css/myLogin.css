@@ -1,0 +1,97 @@
+html{font-size:10px}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+@media screen and (min-width:800px){html{font-size:25px}}
+body{
+	background:url(../img/login_bg.png) no-repeat;
+	/*background-size: ;*/
+}
+.clear{
+	clear:both;
+}
+.content{
+	margin-top:80px;
+}
+.content h1{
+	text-align:center;
+	font-size: 24px;
+	color: #fff;
+}
+.content h3{
+	text-align:center;
+	color: #fff;
+}
+.login-top{
+    width: 360px;
+    height:200px;
+    display: block;
+    margin: 0 auto;
+    /*border:1px solid red;*/
+}
+.login-ic {
+    background: rgba(33, 84, 131, 0.67);
+   /* margin-bottom: 1.5em;
+    padding: 8px;
+    #5F6675
+    * */
+   	margin-bottom: 10px;
+    padding: 3px;
+}
+.login-ic i {
+    background: url(../img/m.png)no-repeat 6px 6px;
+    width: 38px;
+    height: 38px;
+    float: left;
+   /* border:1px solid #0062CC;*/
+    display: inline-block;
+}
+.login-ic i.icon {
+    background: url(../img/l.png)no-repeat 6px 6px;
+}
+.login-ic input[type="text"], .login-ic input[type="password"] {
+    float: left;
+    background: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-left: 1px solid #fff;
+    width: 75%;
+    display: inline-block;
+    margin-left: 7px;
+}
+.log-bwn input[type="submit"] {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    padding: 13px 0;
+    background: #ff3366;
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    border: 2px solid #ff3366;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+@media (max-width: 320px){
+	.login-top {
+    	width: 310px;
+	}
+	.login-ic input[type="text"], .login-ic input[type="password"] {
+		width:65%;
+	}
+}
+
+
+@media (max-width: 450px)
+.login-ic {
+    margin-bottom: 1em;
+    padding: 3px;
+}

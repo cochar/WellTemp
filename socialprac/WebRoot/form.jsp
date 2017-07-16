@@ -102,10 +102,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						A.alert('警告','发布内容不能为空！');
 						return false;
 					}else{
+						var fileId=["file"];
 						$.ajaxFileUpload({
 							url : "status/upload",
 							secureuri : false, 
-							fileElementId : "file",
+							fileElementIds : fileId,
 							dataType : "json",
 							success : function(data, status) {
 								var obj = eval('(' + data + ')');
@@ -173,6 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 imgArr.push(imgUrl);
                 var img = document.createElement("img");
                 img.setAttribute("src", imgArr[i]);
+                img.setAttribute("name", "file");
                 var imgAdd = document.createElement("div");
                 imgAdd.setAttribute("class", "z_addImg");
                 imgAdd.appendChild(img);
