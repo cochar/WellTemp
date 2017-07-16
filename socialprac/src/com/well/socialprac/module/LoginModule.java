@@ -83,7 +83,7 @@ public class LoginModule extends BaseModule {
 			if(dao.fetch(UserInfo.class,user.getName())==null)
 				return "无此学号！";
 			else if(dao.fetch(TeamInfo.class,Cnd.where("name","=",user.getTeamName()))==null)
-				return "学号与队伍名称不对应！";
+				return "学号与队伍不匹配！";
 			user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
 			dao.update(user);
 			session.setAttribute("user", user.getId());
