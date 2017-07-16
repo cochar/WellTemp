@@ -16,9 +16,10 @@
 		<div class="content">
 			<h1>登&nbsp;录</h1>
 			<div class="login-top">
+			<form action="${ctx}/login" method="post" id="formInfo">
 				<div class="login-ic">
 					<i></i>
-					<input type="text" name="studentNum" id="studentNum" placeholder="用户名/学号" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名/学号'}" />
+					<input type="text" name="name" id="name" placeholder="用户名/学号" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名/学号'}" />
 					<div class="clear"></div>
 				</div>
 				<div class="login-ic">
@@ -27,11 +28,36 @@
 					<div class="clear"></div>
 				</div>
 				<div class="log-bwn">
-					<input type="submit" name="" id="" value="login" />
+					<input type="button" name="" id="loginButton" value="login" onclick="login()"/>
 				</div>
+			</form>	
 				<h3>没有帐号？&nbsp;<a href="#">去注册</a></h3>
 				
 			</div>
 		</div>
+		<script type="text/javascript" src="${ctx }/js/jquery.min.js"></script>
+		<script>
+			function login(){
+				$.ajax({
+							type:"post",
+							url:"${ctx}/login",
+							data: $('#formInfo').serialize(),
+							dataType:"json",
+							success:function(data){
+								//alert(data+"+++++"+typeof(data));
+								if(data=='success'){
+									location.href="${ctx}/status/list";	
+								}else if(data=='wrongName'){
+									alert("用户名错误！");
+								}else if(data=='wrongPassword'){
+									alert("密码错误！");
+								}else{
+									location.href="${ctx}/QRCode.jsp";	
+								}							
+									//window.location.href = "status/list";
+							}
+						});
+			}
+		</script>
 	</body>
 </html>
