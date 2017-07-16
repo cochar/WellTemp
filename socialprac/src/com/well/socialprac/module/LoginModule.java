@@ -11,6 +11,7 @@ import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.By;
 import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.Ok;
+import org.nutz.mvc.annotation.Param;
 import org.nutz.mvc.filter.CheckSession;
 import org.nutz.mvc.view.JspView;
 import org.nutz.mvc.view.ViewWrapper;
@@ -75,14 +76,14 @@ public class LoginModule extends BaseModule {
 	@Filters()
 	@Ok("json")
 	@At
-	public String register(UserInfo user,HttpSession session,String identity){
+	public String register(@Param("..") UserInfo user,HttpSession session,String identity){
 		if(session.getAttribute("token")==null)
 			return "noToken";
 		if("member".equals(identity)){
-			if(dao.fetch(UserInfo.class,user.getId())==null)
+			if(dao.fetch(UserInfo.class,user.getName())==null)
 				return "无此学号！";
 			else if(dao.fetch(TeamInfo.class,Cnd.where("name","=",user.getTeamName()))==null)
-				return "学号与队伍名称不对应！";
+				return "学号与队伍不匹配！";
 			user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
 			dao.update(user);
 			session.setAttribute("user", user.getId());

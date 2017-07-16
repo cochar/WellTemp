@@ -65,6 +65,8 @@ public class PracticeStatus {
 	private List<PraiseMap> praiseList;
 	
 	private int ifPraised;
+	
+	private List<String> picList;
 
 	public String getId() {
 		return id;
@@ -201,6 +203,14 @@ public class PracticeStatus {
 
 	public void setIfPraised(int ifPraised) {
 		this.ifPraised = ifPraised;
+	}
+
+	public List<String> getPicList() {
+		return picList;
+	}
+
+	public void setPicList(List<String> picList) {
+		this.picList = picList;
 	}
 	
 }
