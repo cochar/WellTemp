@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,7 +9,8 @@
 		<meta content="yes" name="apple-mobile-web-app-capable" />
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
-		<link rel="stylesheet" href="${ctx }/css/myLogin.css">
+		<link rel="stylesheet" href="${ctx}/css/myLogin.css">
+		
 	</head>
 	<body>
 		<div class="content">
