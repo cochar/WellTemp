@@ -91,6 +91,7 @@ public class LoginModule extends BaseModule {
 				return "invalidName";
 		user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
 		user.setIfPracticeMember(0);
+		user.setDisplayName(user.getName());
 		dao.insert(user);
 		session.setAttribute("user", user.getId());
 		return "success";

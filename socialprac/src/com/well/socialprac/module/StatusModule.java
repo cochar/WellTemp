@@ -73,12 +73,12 @@ public class StatusModule extends BaseModule {
 	
 	@At
 	@Ok("jsp:/list")
-	public List<PracticeStatus> list(int pageNo,HttpSession session){
-		String userId = (String) session.getAttribute("user");
-		Pager pager = dao.createPager(pageNo+1, 1);
+	public Map<String, Object> list(int pageNo,HttpSession session){
+		Pager pager = dao.createPager(pageNo+1, 10);
 		session.setAttribute("user", "41314005");
+		String userId = (String) session.getAttribute("user");
 		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
-//		Map<String, Object> result = new HashMap<String, Object>();
+		Map<String, Object> result = new HashMap<String, Object>();
 		list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
 //		dao.fetchLinks(list,"praiseList");
 		for(PracticeStatus ps:list){
@@ -88,8 +88,19 @@ public class StatusModule extends BaseModule {
 		}
 //		dao.fetchLinks(list, "user");
 //		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
-//		result.put("list", list);
-		return list;
+		result.put("statusList", list);
+		
+		//个人
+		UserInfo user= dao.fetch(UserInfo.class,userId);
+		dao.fetchLinks(user,"team");
+		result.put("user", user);
+		
+		//排行榜
+		List<TeamInfo> teamList = dao.query(TeamInfo.class,Cnd.orderBy().desc("score"),pager);
+		List<UserInfo> userList = dao.query(UserInfo.class,Cnd.where("team_id","=",null).desc("score"),pager);
+		result.put("teamList", teamList);
+		result.put("userList", userList);
+		return result;
 	}
 	
 	@At

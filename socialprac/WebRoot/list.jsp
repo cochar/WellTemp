@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 						</div> 
 						<ul class="mylist" id="thelist">
-								<c:forEach items="${obj}" var="it" varStatus="row">		
+								<c:forEach items="${obj.statusList}" var="it" varStatus="row">		
 								        <li>
 								        	<div class="mytitle">
 								        		<img src="${ctx }/img/309.JPG" alt="头像" />
@@ -75,18 +75,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            </div>
 								        </li>
 								</c:forEach>       
-								        <li>
+								       <!--  <li>
 								            <div class="mytitle"></div>
 								            <div class="text">
 								            	Silder组件不会自动初始化，可以使用A.Slider(#id, opts)方式调用
 								            </div>
 								            <div class="mybottom"></div>
-								        </li>
+								        </li> -->
 								        
 						</ul>  
 						 <div id="pullUp">
 							<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
-						</div> 	  
+						</div> 
+						<!-- <div id="noMore" hidden>
+							<span>无更多动态</span>
+						</div> 	 -->  
 					 </div>
 					</div> 
 				</article>
@@ -105,12 +108,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div> -->
 						<div class="rank-team">
 							<ul>
+							<c:forEach items="${obj.teamList}" var="team" varStatus="row">	
 								<li>
-									<sub class="team-num">1</sub>
-									<b class="team-num-name">现代文学社</b>
-									<span class="team-num-jf">234</span>
+									<sub class="team-num">${row.count}</sub>
+									<b class="team-num-name">${team.name}</b>
+									<span class="team-num-jf">${team.score}</span>
 								</li>
-								<li>
+								</c:forEach>
+								<!-- <li>
 									<sub class="team-num">2</sub>
 									<b class="team-num-name">北科篮球社</b>
 									<span class="team-num-jf">220</span>
@@ -144,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<sub class="team-num">8</sub>
 									<b class="team-num-name">cosplay超级社团</b>
 									<span class="team-num-jf">104</span>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 						
@@ -160,12 +165,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div> -->
 						<div class="rank-team">
 							<ul>
+								<c:forEach items="${obj.userList}" var="user" varStatus="row">	
 								<li>
-									<sub class="team-num">1</sub>
-									<b class="team-num-name">张海鹏</b>
-									<span class="team-num-jf">234</span>
+									<sub class="team-num">${row.count}</sub>
+									<b class="team-num-name">${user.name}</b>
+									<span class="team-num-jf">${user.score}</span>
 								</li>
-								<li>
+								</c:forEach>
+								<!-- <li>
 									<sub class="team-num">2</sub>
 									<b class="team-num-name">刘国梁</b>
 									<span class="team-num-jf">220</span>
@@ -184,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<sub class="team-num">5</sub>
 									<b class="team-num-name">westbook</b>
 									<span class="team-num-jf">104</span>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -195,21 +202,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="scroller">
 						<div class="team">
 			        		<img src="${ctx }/img/309.JPG" alt="头像" />
-			        		<span class="teamName">liukexin</span>
+			        		<span class="teamName">${obj.user.displayName}</span>
 			        		
 			        	</div>
 			        	<div class="jifen">
-			        		<span id="j1">团队积分</span>
-			        		<span id="j2">250</span>
+				        	<c:if test="${obj.user.teamId!=null}" >
+				        		<span id="j1">团队积分</span>
+				        		<span id="j2">${obj.user.team.score }</span>
+				        	</c:if>
+				        	<c:if test="${obj.user.teamId==null}">
+				        		<span id="j1">个人积分</span>
+				        		<span id="j2">${obj.user.score }</span>
+				        	</c:if>
 			        	</div>
-			        	<div class="jieshao">
+			        	
+			        	<!-- <div class="jieshao">
 			        		<p>
 			        			克里夫兰在20世纪50年代曾拥有多达90余万的人口，然而在随后的数十年中人口不断流失，至美国2000年人口普查，克里夫兰市区人口下降至478,403。最新的美国2010年人口普查显示，克里夫兰市区人口进一步下降到396,815，为美国第45大城市，俄亥俄州第二大城市。它是幅员数县、俄亥俄最大的都会区，大克里夫兰的中心（面积随定义方式不同而改变）。克里夫兰-Elyria-Mentor 都会区2011年人口2,068,283，是美国第28大都会区。如果以克里夫兰-Akron-Elyria作为单位，人口可达到2,871,084（2011年），排名上升至第16位。
 			        		
 			        		</p>
 			        	
 			        	
-			        	</div>
+			        	</div> -->
 					</div>						
 				</article>
 				
