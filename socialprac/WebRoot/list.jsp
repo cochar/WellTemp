@@ -4,7 +4,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!-- HTML5文件 -->
 <!DOCTYPE html>
 <html>
@@ -58,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<c:forEach items="${obj.statusList}" var="it" varStatus="row">		
 								        <li>
 								        	<div class="mytitle">
-								        		<img src="${ctx }/img/309.JPG" alt="头像" />
+								        		<img src="${ctx }/img/pic.png" alt="头像" />
 								        		<div class="title-name">${it.displayName }</div>
 								        		<div class="title-time">
 								        		<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
@@ -67,8 +66,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            <div class="text" onclick="commentNew(${it.id},${it.commentNumber})">
 								            	${it.textContent }
 								            </div>
-								            <div class="photo"></div>
-								            
+								            <div class="photo">
+								            <c:forEach items="${it.picList}" var="pic" >
+								            	<img src="${ctx }/upload/${pic}">
+								            	<!-- D:\mySoft\apache-tomcat-6.0.48\webapps\socialprac\upload\ 
+								            	${ctx }/upload/pic
+								            	http://127.0.0.1:8080/socialprac/
+								            	-->
+								            </c:forEach>
+								            	
+								            </div>
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
 								            	<span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span>
@@ -146,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<article data-role="article" id="group_article" data-scroll="verticle" style="top:88px;bottom:0px;">
 					<div class="scroller">
 						<div class="team">
-			        		<img src="${ctx }/img/309.JPG" alt="头像" />
+			        		<img src="${ctx }/img/pic.png" alt="头像" />
 			        		<span class="teamName">${obj.user.displayName}</span>
 			        		
 			        	</div>
@@ -200,12 +207,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function laud(id,s){
 				$.ajax({
 					url:"${ctx}/status/praise?id="+id,
+					dataType:"json",
 					success:function(result){
 						if(result=='1'){
 							var b=$(s).children("#laud");
 							b.removeClass("list_laud").addClass("list_lauded");
 							var $parent=b.parent();
 							$parent.css("color","ea9518");
+						}else{
+							alert("已经该状态点过赞了！不能重复点赞");
 						}
 					}
 					
@@ -349,16 +359,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  
 						  var content='<li><div class="mytitle"><img src="" alt="头像" />'+
 						  			'<div class="title-name">'+jsonObj[k].displayName+'</div><div class="title-time">'+
-			        		'</div></div>'+
+			        		jsonObj[k].releaseTimeStr+'</div></div>'+
 			        		
 			        	
 			            '<div class="text" onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')">'+jsonObj[k].textContent+'</div>'+
-			           '<div class="photo"></div><div class="mybottom">'+
+			           '<div class="photo">';
+			           		var content1 = '';
+				           for(var i in jsonObj[k].picList){
+				        	   content1 += '<img src="${ctx }/upload/'+jsonObj[k].picList[i] + '">';
+				           }
+			           
+			           
+		            	var content2 = '</div><div class="mybottom">'+
 			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'+
-			            	'<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
+			            '<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
 						    
 						     
-			            	$("#thelist").append(content);
+			            	$("#thelist").append(content+content1+content2);
 						    
 						  }  
 						$("#pageNo").val(parseInt($("#pageNo").val())+1);

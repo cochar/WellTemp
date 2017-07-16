@@ -28,6 +28,8 @@ public class PracticeStatus {
 	@Column("release_time")
 	private Date releaseTime;
 	
+	private String releaseTimeStr;
+	
 	@Column("praise_number")
 	private int praiseNumber;
 	
@@ -211,6 +213,14 @@ public class PracticeStatus {
 
 	public void setPicList(List<String> picList) {
 		this.picList = picList;
+	}
+
+	public String getReleaseTimeStr() {
+		return releaseTimeStr;
+	}
+
+	public void setReleaseTimeStr(String releaseTimeStr) {
+		this.releaseTimeStr = releaseTimeStr;
 	}
 	
 }

@@ -9,7 +9,8 @@ body{
 }
 .mylist li {
 	background-color: #FAFAFA;
-	height: 280px;
+	min-height: 270px; 
+	max-height:400px;
 	margin-bottom:8px;
     border: 1px solid #ddd;
 }
@@ -102,6 +103,12 @@ body{
 }
 .mybottom span:nth-child(1){
 	border-right: 1px solid #E0E0E0;
+}
+.photo img{
+	width:96px;
+	height:96px;
+	margin-right:5px;
+	/* border:1px solid red; */
 }
 
 /*textarea 美化*/

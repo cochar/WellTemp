@@ -24,7 +24,7 @@
 				</div>
 				<div class="login-ic">
 					<i class="icon"></i>
-					<input type="text" name="password" id="password" placeholder="password" value="" />
+					<input type="password" name="password" id="password" placeholder="password" value="" />
 					<div class="clear"></div>
 				</div>
 				<div class="log-bwn">

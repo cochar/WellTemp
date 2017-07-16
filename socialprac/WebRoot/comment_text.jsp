@@ -75,12 +75,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						A.alert('警告','评论内容不能为空！');
 						return false;
 					}else{
-						alert($('#formInfo').serialize());
+						//alert($('#formInfo').serialize());
 						$.ajax({
 							type:"post",
 							url:"${ctx}/comment/save",
 							data: $('#formInfo').serialize(),
-							dataType:"text",
+							dataType:"json",
 							success:function(data){
 								
 								if(data=="1"){

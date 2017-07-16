@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="scroller"> 
 						<form id="formInfo" class="" action="">
 							<textarea class="idea" name="textContent" placeholder="分享你们的新动态..."></textarea>
-							
+							<input type="hidden" name="photoPath" id="photoPath">
 							
 							
 							 <div class="container">
@@ -103,10 +103,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						A.alert('警告','发布内容不能为空！');
 						return false;
 					}else{
-						
-						var $img=$("img[name='file']");
-						
-						
 						$.ajaxFileUpload({
 							url : "status/upload?PHPSESSID=1231",
 							secureuri : false, 
@@ -117,13 +113,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								if (obj.success == 'yes') {
 									///location.reload();
 									//$("#files").val(obj.name);
-									
 									var picPath=obj.picPath;
-									alert(picPath.indexOf(","));
 									var pic=picPath.substring(picPath.indexOf(",")+1);
-									alert(pic);
+									$("#photoPath").val(pic);
+									save();
 								} else {
-									
 									alert(obj.success);
 								}
 							},
@@ -136,11 +130,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				});
 			});
 			function save(){
-				alert($('#formInfo').serialize());
 				$.ajax({
 					type:"post",
 					url:"status/save",
 					data: $('#formInfo').serialize(),
+					datatype:"json",
 					success:function(data){
 						if(data=="1")
 							window.location.href = "status/list";

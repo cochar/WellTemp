@@ -81,9 +81,11 @@ public class StatusModule extends BaseModule {
 		Map<String, Object> result = new HashMap<String, Object>();
 		list=dao.query(PracticeStatus.class, Cnd.orderBy().desc("releaseTime"),pager);
 //		dao.fetchLinks(list,"praiseList");
+		String str = "";
 		for(PracticeStatus ps:list){
 			ps.setIfPraised(0);
-			ps.setPicList(stringToJson(ps.getPhotoPath()));
+			str = ps.getPhotoPath();
+			ps.setPicList(stringToJson(str));
 			if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",ps.getId()).and("userId","=",userId)))
 				ps.setIfPraised(1);
 		}
@@ -107,7 +109,7 @@ public class StatusModule extends BaseModule {
 	@At
 	@Ok("json")
 	public String scrollUp(int pageNo,HttpSession session){
-		Pager pager = dao.createPager(pageNo+1, 1);
+		Pager pager = dao.createPager(pageNo+1, 10);
 		String userId = (String) session.getAttribute("user");
 //		session.setAttribute("user", "41314005");
 		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
@@ -116,9 +118,13 @@ public class StatusModule extends BaseModule {
 //		dao.fetchLinks(list, "user");
 //		System.out.println("========================the very firt weibo:"+list.get(0).getTextContent());
 //		result.put("list", list);
+		String str = "";
 		for(PracticeStatus ps:list){
 			ps.setIfPraised(0);
+			str = ps.getPhotoPath();
+			ps.setPicList(stringToJson(str));
 			ps.setPicList(stringToJson(ps.getPhotoPath()));
+			ps.setReleaseTimeStr(sdf.format(ps.getReleaseTime()));
 			if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",ps.getId()).and("userId","=",userId)))
 				ps.setIfPraised(1);
 		}
@@ -261,6 +267,9 @@ public class StatusModule extends BaseModule {
 	
 	private List<String> stringToJson(String str){
 		List<String> list= new ArrayList<String>();
+		if(str==null||"".equals(str)){
+			return list;
+		}
 		String[] strArray = str.split(",");
 		if(strArray!=null){
 		for(String s:strArray){
