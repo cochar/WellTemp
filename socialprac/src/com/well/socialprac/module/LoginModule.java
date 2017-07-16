@@ -80,16 +80,16 @@ public class LoginModule extends BaseModule {
 			return "noToken";
 		if("member".equals(identity)){
 			if(dao.fetch(UserInfo.class,user.getId())==null)
-				return "wrongNo";
+				return "无此学号！";
 			else if(dao.fetch(TeamInfo.class,Cnd.where("name","=",user.getTeamName()))==null)
-				return "wrongTeam";
+				return "学号与队伍名称不对应！";
 			user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
 			dao.update(user);
 			session.setAttribute("user", user.getId());
 			return "success";
 		}
 		else if(null!=dao.fetch(UserInfo.class,Cnd.where("name","=",user.getName())))
-				return "invalidName";
+				return "用户名不可用！";
 		user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
 		user.setIfPracticeMember(0);
 		user.setDisplayName(user.getName());
