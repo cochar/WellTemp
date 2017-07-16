@@ -115,41 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="team-num-jf">${team.score}</span>
 								</li>
 								</c:forEach>
-								<!-- <li>
-									<sub class="team-num">2</sub>
-									<b class="team-num-name">北科篮球社</b>
-									<span class="team-num-jf">220</span>
-								</li>
-								<li>
-									<sub class="team-num">3</sub>
-									<b class="team-num-name">演讲社</b>
-									<span class="team-num-jf">134</span>
-								</li>
-								<li>
-									<sub class="team-num">4</sub>
-									<b class="team-num-name">足球社</b>
-									<span class="team-num-jf">104</span>
-								</li>
-								<li>
-									<sub class="team-num">5</sub>
-									<b class="team-num-name">cosplay超级社团</b>
-									<span class="team-num-jf">104</span>
-								</li>
-								<li>
-									<sub class="team-num">6</sub>
-									<b class="team-num-name">演讲社</b>
-									<span class="team-num-jf">134</span>
-								</li>
-								<li>
-									<sub class="team-num">7</sub>
-									<b class="team-num-name">足球社</b>
-									<span class="team-num-jf">104</span>
-								</li>
-								<li>
-									<sub class="team-num">8</sub>
-									<b class="team-num-name">cosplay超级社团</b>
-									<span class="team-num-jf">104</span>
-								</li> -->
+								
 							</ul>
 						</div>
 						
@@ -172,26 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="team-num-jf">${user.score}</span>
 								</li>
 								</c:forEach>
-								<!-- <li>
-									<sub class="team-num">2</sub>
-									<b class="team-num-name">刘国梁</b>
-									<span class="team-num-jf">220</span>
-								</li>
-								<li>
-									<sub class="team-num">3</sub>
-									<b class="team-num-name">章程</b>
-									<span class="team-num-jf">134</span>
-								</li>
-								<li>
-									<sub class="team-num">4</sub>
-									<b class="team-num-name">森海塞尔</b>
-									<span class="team-num-jf">104</span>
-								</li>
-								<li>
-									<sub class="team-num">5</sub>
-									<b class="team-num-name">westbook</b>
-									<span class="team-num-jf">104</span>
-								</li> -->
+								
 							</ul>
 						</div>
 					</div>
