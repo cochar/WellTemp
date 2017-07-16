@@ -46,7 +46,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						        <!--    照片添加    -->
 						        <div class="z_photo">
 						            <div class="z_file">
-						                <input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo','z_file');" />
+						              	<!-- <input type="file" name="file" id="file6"> -->
+						                <input type="file" name="file" id="file" value="" accept="image/jpg,image/jpeg,image/png"  multiple onchange="imgChange('z_photo','z_file');" />
 						
 						            </div>
 						
@@ -102,18 +103,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						A.alert('警告','发布内容不能为空！');
 						return false;
 					}else{
-						var fileId=["file"];
+						
+						var $img=$("img[name='file']");
+						
+						
 						$.ajaxFileUpload({
-							url : "status/upload",
+							url : "status/upload?PHPSESSID=1231",
 							secureuri : false, 
-							fileElementIds : fileId,
+							fileElementId : "file",
 							dataType : "json",
 							success : function(data, status) {
 								var obj = eval('(' + data + ')');
 								if (obj.success == 'yes') {
 									///location.reload();
 									//$("#files").val(obj.name);
-									alert("keyi");
+									
+									var picPath=obj.picPath;
+									alert(picPath.indexOf(","));
+									var pic=picPath.substring(picPath.indexOf(",")+1);
+									alert(pic);
 								} else {
 									
 									alert(obj.success);
@@ -123,19 +131,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								alert(e);
 							}
 						});
-					/* 	alert($('#formInfo').serialize());
-						$.ajax({
-							type:"post",
-							url:"status/save",
-							data: $('#formInfo').serialize(),
-							success:function(data){
-								if(data=="1")
-									window.location.href = "status/list";
-							}
-						}); */
+					
 					}
 				});
 			});
+			function save(){
+				alert($('#formInfo').serialize());
+				$.ajax({
+					type:"post",
+					url:"status/save",
+					data: $('#formInfo').serialize(),
+					success:function(data){
+						if(data=="1")
+							window.location.href = "status/list";
+					}
+				});
+				
+			}
 			
 		</script>
 		 <script type="text/javascript">

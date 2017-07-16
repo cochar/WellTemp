@@ -8,7 +8,7 @@ var ioc = {
             fields : {
                 url : "jdbc:mysql://127.0.0.1:3306/socialp",
                 username : "root",
-                password : "root",
+                password : "1234567890",
                 //validationQuery : "select 1" , // Oracle的话需要改成 select 1 from dual
                 maxActive : 100
             }

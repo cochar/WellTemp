@@ -31,7 +31,7 @@
 					<input type="button" name="" id="loginButton" value="login" onclick="login()"/>
 				</div>
 			</form>	
-				<h3>没有帐号？&nbsp;<a href="#">去注册</a></h3>
+				<h3>没有帐号？&nbsp;<a href="register.jsp">去注册</a></h3>
 				
 			</div>
 		</div>

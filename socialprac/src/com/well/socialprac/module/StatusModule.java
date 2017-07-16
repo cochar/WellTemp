@@ -171,14 +171,15 @@ public class StatusModule extends BaseModule {
 	public String upload(HttpServletRequest request,
 			HttpSession session,HttpServletResponse response)
 			throws Exception {
-//		Map<String, Object> result = new HashMap<String, Object>();
-			UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
+//			Map<String, Object> result = new HashMap<String, Object>();
+//			UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
 	       //把文件上传到服务器指定位置，并向前台返回文件名
-		
+		if (request.getParameter("PHPSESSID") != null) {
 			DiskFileItemFactory fac = new DiskFileItemFactory();
 			ServletFileUpload upload = new ServletFileUpload(fac);
 			upload.setHeaderEncoding("utf-8");
-			List fileList = null;
+			List<FileItem> fileList = null;
+			String picPath="";
 			try {
 				// 文件类型解析req
 				fileList = upload.parseRequest(request);
@@ -186,10 +187,10 @@ public class StatusModule extends BaseModule {
 				// 终止文件上传，此处抛出异常
 				ex.printStackTrace();
 			}
-			Iterator it = fileList.iterator();
-			while (it.hasNext()) {
+//			Iterator it = fileList.iterator();
+			for (FileItem item:fileList) {
 				String extName = "";
-				FileItem item = (FileItem) it.next();
+//				FileItem item = (FileItem) it.next();
 				if (!item.isFormField()) {
 					String filename = item.getName();
 					/*name = name.substring(name.lastIndexOf(File.separator) + 1) ;
@@ -209,6 +210,7 @@ public class StatusModule extends BaseModule {
 					if (item.getName() == null|| item.getName().trim().equals("")) {
 						continue;
 					}
+					picPath=picPath+","+name;
 					//String path = request.getSession().getServletContext().getRealPath("/cfg.xml"); 
 					String filePath=request.getSession().getServletContext().getRealPath("")+"\\"+"upload"+"\\";
 					System.out.println(name+"========文件路径"+filePath);
@@ -230,21 +232,23 @@ public class StatusModule extends BaseModule {
 //						System.out.println("================================="+name);
 //						pw.close();
 //						pw.flush();
-						Map map = new HashMap();
-						String jsonStr = null;
-						map.put("success", "yes");
-						map.put("name", name);
-		                jsonStr = String.valueOf(JSONObject.fromObject(map));
-		                //更新记录
-		               // systemService.updateScaninfo(user.getId(),name,filename,filePath);
-						return jsonStr;
+						
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 					
 				}
 			}
-		
+			Map map = new HashMap();
+			String jsonStr = null;
+			map.put("success", "yes");
+			map.put("picPath", picPath);
+            jsonStr = String.valueOf(JSONObject.fromObject(map));
+            //更新记录
+           // systemService.updateScaninfo(user.getId(),name,filename,filePath);
+			return jsonStr;
+		}
 		return null;
 	}
+	
 }
