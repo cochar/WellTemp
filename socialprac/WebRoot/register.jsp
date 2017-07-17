@@ -60,7 +60,7 @@
 						</div>
 						<div class="login-ic">
 							<i></i>
-							<input type="text" name="name" id="y-username" placeholder="用户名" value="" style="ime-mode:disabled" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+							<input type="text" name="name" id="y-username" placeholder="登录名（数字或字母）" value="" style="ime-mode:disabled" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
 							<div class="clear"></div>
 						</div>
 						<div class="login-ic">

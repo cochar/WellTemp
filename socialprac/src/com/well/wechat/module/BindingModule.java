@@ -8,6 +8,7 @@ import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
+import org.nutz.mvc.annotation.Filters;
 import org.nutz.weixin.spi.WxHandler;
 import org.nutz.weixin.util.Wxs;
 
@@ -47,6 +48,7 @@ public class BindingModule extends BaseModule {
     protected WxHandler wxHandler;
 
     @At // 拼起来的全路径就是 /weixin/msgin
+    @Filters()
     public View msgin(HttpServletRequest req) throws IOException {
         return Wxs.handle(wxHandler, req, "default"); // 最后面的default,可以不写,只是个标识符.
     }

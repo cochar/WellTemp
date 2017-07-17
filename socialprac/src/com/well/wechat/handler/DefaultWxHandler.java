@@ -38,7 +38,7 @@ public WxOutMsg text(WxInMsg msg) {
     	String token = tokenGen(8);
     	tokenListGlobal.add(token);
 //    	cacheSave(token);
-        return Wxs.respText("http://cancerce1l.ngrok.wendal.cn/socialprac/toLogin?token="+token);
+        return Wxs.respText("http://summer.ustb.edu.cn/toLogin?token="+token);
     }
     else if ("2".equals(msg.getContent())) {
         return Wxs.respText("发2干啥玩意儿。");

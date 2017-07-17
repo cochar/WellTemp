@@ -59,17 +59,18 @@ public class LoginModule extends BaseModule {
 	@Filters()
 	@Ok("json")
 	@At
-	public String login(String password,String userName,HttpSession session){
-		return "success";
+	public String login(String password,String name,HttpSession session){
+		
 //		if(session.getAttribute("token")==null)
 //			return "noToken";
-//		UserInfo user = dao.fetch(UserInfo.class,Cnd.where("name","=",userName));
-//		if(user==null)
-//			return "wrongName ";
-//		else if(MD5Util.parseStrToMd5L16(password).equals(user.getPassword())){
-//			session.setAttribute("user", user.getId());
-//			return "success";
-//		}else return "wrongPassword";
+		UserInfo user = dao.fetch(UserInfo.class,Cnd.where("name","=",name));
+//		System.out.println(MD5Util.parseStrToMd5L16(password));
+		if(user==null)
+			return "wrongName";
+		else if(MD5Util.parseStrToMd5L16(password).equals(user.getPassword())){
+			session.setAttribute("user", user.getId());
+			return "success";
+		}else return "wrongPassword";
 	}
 	
 //	@Filters( @By(type=CheckSession.class, args={"token", "/QRCode.jsp"}))
@@ -77,8 +78,8 @@ public class LoginModule extends BaseModule {
 	@Ok("json")
 	@At
 	public String register(@Param("..") UserInfo user,HttpSession session,String identity){
-		if(session.getAttribute("token")==null)
-			return "noToken";
+//		if(session.getAttribute("token")==null)
+//			return "noToken";
 		if("member".equals(identity)){
 			if(dao.fetch(UserInfo.class,user.getName())==null)
 				return "无此学号！";
@@ -92,8 +93,8 @@ public class LoginModule extends BaseModule {
 		else if(null!=dao.fetch(UserInfo.class,Cnd.where("name","=",user.getName())))
 				return "用户名不可用！";
 		user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
+		System.out.println("==============="+user.getPassword());
 		user.setIfPracticeMember(0);
-		user.setDisplayName(user.getName());
 		dao.insert(user);
 		session.setAttribute("user", user.getId());
 		return "success";

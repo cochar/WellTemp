@@ -78,7 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            </div>
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
-								            	<span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span>
+								            	
+								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span></c:if>
+								            	<c:if test="${it.ifPraised==1 }"><span><b id="laud" class="list_lauded"></b><sub> 赞（${it.praiseNumber} </sub></span></c:if>
+								            	
 								            </div>
 								        </li>
 								</c:forEach>       
@@ -212,13 +215,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if(result=='1'){
 							var b=$(s).children("#laud");
 							b.removeClass("list_laud").addClass("list_lauded");
+							$(s).removeAttr("onclick");
 							var $parent=b.parent();
 							$parent.css("color","ea9518");
 						}else{
 							alert("已经该状态点过赞了！不能重复点赞");
 						}
+					},
+					error:function(){
+						alert("点赞失败！");
 					}
-					
 				});
 				
 			}
@@ -371,11 +377,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			           
 			           
 		            	var content2 = '</div><div class="mybottom">'+
-			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'+
-			            '<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
-						    
+			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'
+						
+						if(jsonObj[k].ifPraised==0){
+			            	var content3 = '<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
+						}else{
+							var content3 = '<span><b id="laud" class="list_lauded"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>';
+						}
 						     
-			            	$("#thelist").append(content+content1+content2);
+			            	$("#thelist").append(content+content1+content2+content3);
 						    
 						  }  
 						$("#pageNo").val(parseInt($("#pageNo").val())+1);

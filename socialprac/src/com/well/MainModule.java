@@ -1,10 +1,13 @@
 package com.well;
 
+import org.nutz.mvc.annotation.By;
 import org.nutz.mvc.annotation.Fail;
+import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.IocBy;
 import org.nutz.mvc.annotation.Modules;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.SetupBy;
+import org.nutz.mvc.filter.CheckSession;
 import org.nutz.mvc.ioc.provider.ComboIocProvider;
 
 @IocBy(type=ComboIocProvider.class, args={"*js", "ioc/",
@@ -17,7 +20,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @Ok("json")
 @Fail("jsp:jsp.500")
 @SetupBy(MainSetup.class)
-//@Filters(@By(type=CheckSession.class, args={"user", "/login"}))
+@Filters(@By(type=CheckSession.class, args={"user", "/login.jsp"}))
 public class MainModule {
 
 }

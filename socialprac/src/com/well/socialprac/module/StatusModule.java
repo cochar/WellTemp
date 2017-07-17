@@ -50,7 +50,7 @@ public class StatusModule extends BaseModule {
 	
 	@At
 	public String save(@Param("..") PracticeStatus practiceStatus,HttpSession session) throws Exception{
-		session.setAttribute("user", "41314005");
+//		session.setAttribute("user", "41314005");
 //		System.out.println("============"+practiceStatus.getTextContent());
 		practiceStatus.setReleaseTime(sdf.parse(sdf.format(new Date())));//考虑插入类型，最好日期，是不是可以sql.date；
 		System.out.println("==========="+session.getAttribute("user"));
@@ -75,7 +75,7 @@ public class StatusModule extends BaseModule {
 	@Ok("jsp:/list")
 	public Map<String, Object> list(int pageNo,HttpSession session){
 		Pager pager = dao.createPager(pageNo+1, 10);
-		session.setAttribute("user", "41314005");
+//		session.setAttribute("user", "41314005");
 		String userId = (String) session.getAttribute("user");
 		List<PracticeStatus> list = new ArrayList<PracticeStatus>();
 		Map<String, Object> result = new HashMap<String, Object>();
