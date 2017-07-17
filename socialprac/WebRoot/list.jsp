@@ -79,8 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
 								            	
-								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub> 赞（${it.praiseNumber}）</sub></span></c:if>
-								            	<c:if test="${it.ifPraised==1 }"><span><b id="laud" class="list_lauded"></b><sub> 赞（${it.praiseNumber} </sub></span></c:if>
+								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub id="laud_num"> 赞（${it.praiseNumber}）</sub></span></c:if>
+								            	<c:if test="${it.ifPraised==1 }"><span><b id="laud" class="list_lauded"></b><sub id="laud_num"> 赞（${it.praiseNumber}）</sub></span></c:if>
 								            	
 								            </div>
 								        </li>
@@ -214,8 +214,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					success:function(result){
 						if(result=='1'){
 							var b=$(s).children("#laud");
+							var sub=$(s).children("#laud_num");
 							b.removeClass("list_laud").addClass("list_lauded");
-							$(s).removeAttr("onclick");
+							//$(s).removeAttr("onclick");
+							//sub.val(' 赞（${it.praiseNumber}）');
 							var $parent=b.parent();
 							$parent.css("color","ea9518");
 						}else{
