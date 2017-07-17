@@ -153,11 +153,11 @@ public class StatusModule extends BaseModule {
 			return "0";
 		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, id);
 		practiceStatus.setPraiseNumber(practiceStatus.getPraiseNumber()+1);
-		dao.update(practiceStatus);
 		PraiseMap praiseMap = new PraiseMap();
 		praiseMap.setStatusId(practiceStatus.getId());
 		praiseMap.setUserId(userId);
 		dao.insert(praiseMap);
+		dao.update(practiceStatus);
 		UserInfo user=dao.fetch(UserInfo.class,userId);
 		user.setScore(user.getScore()+1);
 		dao.fetchLinks(practiceStatus, "user");

@@ -36,8 +36,9 @@ public class CommentModule extends BaseModule {
 		PracticeStatus practiceStatus = dao.fetch(PracticeStatus.class, comment.getStatusId());
 		practiceStatus.setCommentNumber(practiceStatus.getCommentNumber()+1);
 		comment.setCommentTime(sdf.parse(sdf.format(new Date())));
-		dao.update(practiceStatus);
+		
 		dao.insert(comment);
+		dao.update(practiceStatus);
 		UserInfo user=dao.fetch(UserInfo.class,(String) session.getAttribute("user"));
 		user.setScore(user.getScore()+2);
 		dao.fetchLinks(practiceStatus, "user");
