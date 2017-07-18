@@ -19,6 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="${ctx }/assets/agile/css/flat/animate.css">
 		<link rel="stylesheet" href="${ctx }/assets/component/timepicker/timepicker.css">
 		<link rel="stylesheet" href="${ctx }/assets/app/css/app.css">
+		
+		<link rel="stylesheet" href="${ctx }/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="${ctx }/css/zoomify.min.css">
 		<link rel="stylesheet" href="${ctx }/css/myStyle.css">
 		<!--iscroll 滚动插件 -->
 		<script type="application/javascript" src="${ctx }/isrcoll/iscroll.js"></script>
@@ -57,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<c:forEach items="${obj.statusList}" var="it" varStatus="row">		
 								        <li>
 								        	<div class="mytitle">
-								        		<img src="${ctx }/img/pic.png" alt="头像" />
+								        		<img src="${ctx }/img/pic1.png" alt="头像" />
 								        		<div class="title-name">${it.displayName }</div>
 								        		<div class="title-time">
 								        		<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
@@ -68,18 +71,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            </div>
 								            <div class="photo">
 								            <c:forEach items="${it.picList}" var="pic" >
+								            	<div class="wImg">
 								            	<img src="${ctx }/upload/${pic}">
 								            	<!-- D:\mySoft\apache-tomcat-6.0.48\webapps\socialprac\upload\ 
 								            	${ctx }/upload/pic
 								            	http://127.0.0.1:8080/socialprac/
 								            	-->
+								            	</div>
 								            </c:forEach>
 								            	
 								            </div>
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
 								            	
-								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub id="laud_num"> 赞（${it.praiseNumber}）</sub></span></c:if>
+								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub id="laud_num"> 赞（<i id="laudNum">${it.praiseNumber}</i>）</sub></span></c:if>
 								            	<c:if test="${it.ifPraised==1 }"><span><b id="laud" class="list_lauded"></b><sub id="laud_num"> 赞（${it.praiseNumber}）</sub></span></c:if>
 								            	
 								            </div>
@@ -200,6 +205,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="${ctx }/assets/component/timepicker/agile.timepicker.js"></script>	
 		<script type="text/javascript" src="${ctx }/assets/component/extend.js"></script>
 		<script type="text/javascript" src="${ctx }/assets/app/js/app.js"></script>
+		<script src="${ctx }/js/jquery.min.js"></script>
+		<script src="${ctx }/js/zoomify.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$(".photo img").zoomify();
+		});
+			
+		</script>
 		<script>
 		
 			function go(){
@@ -218,6 +231,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							b.removeClass("list_laud").addClass("list_lauded");
 							//$(s).removeAttr("onclick");
 							//sub.val(' 赞（${it.praiseNumber}）');
+							
+							$("#laudNum").html(parseInt($("#laudNum").html())+1);
 							var $parent=b.parent();
 							$parent.css("color","ea9518");
 						}else{
@@ -238,6 +253,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					location.href="${ctx}/comment/create?id="+id;
 				}				
 			}
+			
+			//图片点击放大
+			/* $(function(){
+				$(".photo img").click(function(){
+					
+					 if(this.width == this.attributes['default_width'].val() && this.height == this.attributes['default_height'].val()){
+	                        this.width *=3;
+	                        this.height *= 3;
+	                    }else{
+	                        this.width = this.attributes['default_width'].val() ;
+	                        this.height = this.attributes['default_height'].val();
+	                    }
+				});
+				
+			}); */
+			
 			
 		
 		</script>
@@ -365,20 +396,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  for (var k in jsonObj) {
 						  /*   alert(k + " : " + jsonObj[k].textContent); */
 						  
-						  var content='<li><div class="mytitle"><img src="" alt="头像" />'+
+						  var content='<li><div class="mytitle"><img src="${ctx }/img/pic1.png" alt="头像" />'+
 						  			'<div class="title-name">'+jsonObj[k].displayName+'</div><div class="title-time">'+
 			        		jsonObj[k].releaseTimeStr+'</div></div>'+
 			        		
 			        	
 			            '<div class="text" onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')">'+jsonObj[k].textContent+'</div>'+
-			           '<div class="photo">';
+			           '<div class="photo"><div class="wImg">';
 			           		var content1 = '';
 				           for(var i in jsonObj[k].picList){
 				        	   content1 += '<img src="${ctx }/upload/'+jsonObj[k].picList[i] + '">';
 				           }
 			           
 			           
-		            	var content2 = '</div><div class="mybottom">'+
+		            	var content2 = '</div></div><div class="mybottom">'+
 			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'
 						
 						if(jsonObj[k].ifPraised==0){

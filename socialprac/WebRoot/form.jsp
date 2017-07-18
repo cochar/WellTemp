@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<section id="list_section" data-role="section" class="active">
 				<header>
 				    <div class="titlebar">
-				    	<a data-toggle="back" href="javascript:history.back(-1)"><i class="iconfont iconline-arrow-left"></i></a>
+				    	<a data-toggle="back" href="${ctx}/status/list "><i class="iconfont iconline-arrow-left"></i></a>
 				    	<h1>发布动态</h1>
 				    	<button id="fbbutton" class="disable">发布</button>
 				    </div>

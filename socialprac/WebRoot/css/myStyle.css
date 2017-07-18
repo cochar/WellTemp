@@ -20,7 +20,9 @@ body{
    /* overflow: hidden;*/
     /*background:#2980B9;*/
 }
-
+.mylist i{
+	font-style: normal;
+}
 .mylist li .text {
 	padding:6px;
     overflow: hidden;
@@ -86,7 +88,7 @@ body{
 	/* line-height:20px; */
 	display:inline-block;
 	position:absolute;
-	top:6px;
+	top:15px;
 	left:45px;
 }
 .list_comment{
@@ -104,10 +106,18 @@ body{
 .mybottom span:nth-child(1){
 	border-right: 1px solid #E0E0E0;
 }
-.photo img{
+.photo .wImg{
 	width:96px;
 	height:96px;
+	display:inline-block;
 	margin-right:5px;
+	
+}
+.photo img{
+	/*  width:auto;
+	 height:auto; */
+	 max-width:100%;
+	 max-height:100%;
 	/* border:1px solid red; */
 }
 
