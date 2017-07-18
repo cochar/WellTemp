@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<section id="list_section" data-role="section" class="active">
 				<header>
 				    <div class="titlebar">
-				    	<a data-toggle="back" href="javascript:history.back(-1)"><i class="iconfont iconline-arrow-left"></i></a>
+				    	<a data-toggle="back" href="${ctx}/status/list"><i class="iconfont iconline-arrow-left"></i></a>
 				    	<h1>正文</h1>
 				    </div>
 				</header>
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="scroller" style="background:#eee"> 
 						<div class="comment_text">
 							<div class="mytitle">
-				        		<img src="${ctx }/img/pic.png" alt="头像" />
+				        		<img src="${ctx }/img/pic1.png" alt="头像" />
 				        		<div class="title-name">${obj.displayName }</div>
 				        		<div class="title-time">
 				        			<fmt:formatDate value="${obj.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
