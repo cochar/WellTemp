@@ -177,6 +177,8 @@ public class StatusModule extends BaseModule {
 	public PracticeStatus single(String id){
 		PracticeStatus practiceStatus = new PracticeStatus();
 		practiceStatus = dao.fetch(PracticeStatus.class,id);
+		String str = practiceStatus.getPhotoPath();
+		practiceStatus.setPicList(stringToJson(str));
 		dao.fetchLinks(practiceStatus, "commentList");
 		return practiceStatus;
 	}
