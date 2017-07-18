@@ -46,7 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				        	<div class="text">
 				            	${obj.textContent }
 				            </div>
-				            <div class="photo"></div>
+				            <div class="photo">
+								<c:forEach items="${it.picList}" var="pic" >
+									<img src="${ctx }/upload/${pic}">
+								</c:forEach>	
+							</div>
 						</div>
 						<div class="commentbar">
 							<span id="p1">评论</span>
