@@ -5,6 +5,7 @@ import java.util.Date;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.EL;
 import org.nutz.dao.entity.annotation.Name;
+import org.nutz.dao.entity.annotation.One;
 import org.nutz.dao.entity.annotation.Prev;
 import org.nutz.dao.entity.annotation.Table;
 
@@ -27,6 +28,9 @@ public class Comment {
 	
 	@Column("status_id")
 	private String statusId;
+	
+	@One(field="userId")
+	private UserInfo user;
 
 	public String getId() {
 		return id;
@@ -66,6 +70,14 @@ public class Comment {
 
 	public void setStatusId(String statusId) {
 		this.statusId = statusId;
+	}
+
+	public UserInfo getUser() {
+		return user;
+	}
+
+	public void setUser(UserInfo user) {
+		this.user = user;
 	}
 	
 }

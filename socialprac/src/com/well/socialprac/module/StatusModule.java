@@ -180,6 +180,8 @@ public class StatusModule extends BaseModule {
 		String str = practiceStatus.getPhotoPath();
 		practiceStatus.setPicList(stringToJson(str));
 		dao.fetchLinks(practiceStatus, "commentList");
+		dao.fetchLinks(practiceStatus.getCommentList(),"user");
+//		System.out.println("=========pra"+practiceStatus.getCommentList().get(0).getUser().getDisplayName());
 		return practiceStatus;
 	}
 	@At("/upload")
