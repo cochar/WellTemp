@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li>
 									<div class="comment_text">
 										<div class="mytitle">
-							        		<img src="${ctx }/img/pic.png" alt="头像" />
+							        		<img src="${ctx }/img/pic1.png" alt="头像" />
 							        		<div class="title-name">
 							        			${it.user.displayName}
 							        		</div>
