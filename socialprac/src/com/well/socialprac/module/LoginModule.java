@@ -1,25 +1,19 @@
 package com.well.socialprac.module;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.nutz.dao.Cnd;
 import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
-import org.nutz.mvc.annotation.By;
 import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
-import org.nutz.mvc.filter.CheckSession;
 import org.nutz.mvc.view.JspView;
 import org.nutz.mvc.view.ViewWrapper;
 
 import com.well.BaseModule;
 import com.well.socialprac.entity.TeamInfo;
 import com.well.socialprac.entity.UserInfo;
-import com.well.utils.CacheUtil;
 import com.well.utils.MD5Util;
 import com.well.wechat.handler.DefaultWxHandler;
 
@@ -80,20 +74,25 @@ public class LoginModule extends BaseModule {
 	public String register(@Param("..") UserInfo user,HttpSession session,String identity){
 //		if(session.getAttribute("token")==null)
 //			return "noToken";
+		UserInfo userTemp = dao.fetch(UserInfo.class,user.getName());
+		TeamInfo teamTemp = dao.fetch(TeamInfo.class,Cnd.where("name","=",user.getTeamName()));
 		if("member".equals(identity)){
-			if(dao.fetch(UserInfo.class,user.getName())==null)
+			if(userTemp==null)
 				return "无此学号！";
-			else if(dao.fetch(TeamInfo.class,Cnd.where("name","=",user.getTeamName()))==null)
-				return "学号与队伍不匹配！";
-			user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
-			dao.update(user);
-			session.setAttribute("user", user.getId());
+			else if(teamTemp==null)
+					return "您输入的队伍名称不存在！";
+			else if(!teamTemp.getId().equals(userTemp.getTeamId()))
+					return "学号与队伍不匹配！";
+			userTemp.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
+//			System.out.println("==============="+user.getPassword());
+			dao.update(userTemp);
+			session.setAttribute("user", userTemp.getId());
 			return "success";
 		}
 		else if(null!=dao.fetch(UserInfo.class,Cnd.where("name","=",user.getName())))
 				return "用户名不可用！";
 		user.setPassword(MD5Util.parseStrToMd5L16(user.getPassword()));
-		System.out.println("==============="+user.getPassword());
+//		System.out.println("==============="+user.getPassword());
 		user.setIfPracticeMember(0);
 		dao.insert(user);
 		session.setAttribute("user", user.getId());

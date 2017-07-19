@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    </div>
 				    <div class="tabbar">
 				    	<a class="tab active" data-role="tab" href="#normal_article" data-toggle="article">首页</a>
-				    	<a class="tab" data-role="tab" href="#border_article" data-toggle="article">积分榜</a>
+				    	<a class="tab" data-role="tab" href="#border_article" data-toggle="article">活力榜</a>
 				    	<a class="tab" data-role="tab" href="#group_article" data-toggle="article">个人</a>
 				    </div>
 				</header>
@@ -61,7 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								        <li>
 								        	<div class="mytitle">
 								        		<img src="${ctx }/img/pic1.png" alt="头像" />
-								        		<div class="title-name">${it.displayName }</div>
+								        		<c:choose>
+									        		<c:when test="${fn:contains(it.displayName,'北京科技大学')}">
+									        			<div class="title-name">${fn:substringAfter(it.displayName,"北京科技大学")}</div>
+									        		</c:when>
+									        		<c:otherwise>
+									        			<div class="title-name">${it.displayName}</div>
+									        		</c:otherwise>
+								        		</c:choose>
 								        		<div class="title-time">
 								        		<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
 								        		</div>
