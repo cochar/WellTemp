@@ -74,8 +74,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								        			${it.releaseTimeStr }
 								        		</div>
 								        	</div>
-								            <div class="text" onclick="commentNew(${it.id},${it.commentNumber})">
-								            	${it.textContent }
+								            <div class="text">
+								            	<c:if test="${fn:length(it.textContent)>144}">  
+										            <c:out value="${fn:substring(it.textContent,0,144)}" /> ... <a href="javascript:void(0);" onclick="showAll('${it.id}')">显示全部</a>
+										        </c:if>  
+										        <c:if test="${fn:length(it.textContent)<=144}">${it.textContent}</c:if>
 								            </div>
 								            <div class="photo">
 								            <c:forEach items="${it.picList}" var="pic" >
@@ -91,10 +94,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								            </div>
 								            <div class="mybottom">
 								            	<span onclick="commentNew('${it.id}','${it.commentNumber}')"><b class="list_comment"></b> <sub>评论（${it.commentNumber}）</sub></span>
-								            	
 								            	<c:if test="${it.ifPraised==0 }"><span onclick="laud('${it.id}',this)"><b id="laud" class="list_laud"></b><sub id="laud_num"> 赞（<i id="laudNum">${it.praiseNumber}</i>）</sub></span></c:if>
 								            	<c:if test="${it.ifPraised==1 }"><span><b id="laud" class="list_lauded"></b><sub id="laud_num"> 赞（${it.praiseNumber}）</sub></span></c:if>
-								            	
 								            </div>
 								        </li>
 								</c:forEach>       
@@ -240,7 +241,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							//$(s).removeAttr("onclick");
 							//sub.val(' 赞（${it.praiseNumber}）');
 							
-							$("#laudNum").html(parseInt($("#laudNum").html())+1);
+							$(s).children("sub").children("i").html(parseInt($(s).children("sub").children("i").html())+1);
 							var $parent=b.parent();
 							$parent.css("color","ea9518");
 						}else{
@@ -260,6 +261,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}else{
 					location.href="${ctx}/comment/create?id="+id;
 				}				
+			}
+			function showAll(id){
+				location.href="${ctx}/status/single?id="+id;
 			}
 			
 			//图片点击放大
@@ -403,27 +407,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						var jsonObj = eval("(" + result + ")");
 						  for (var k in jsonObj) {
 						  /*   alert(k + " : " + jsonObj[k].textContent); */
-						  
+							  	var txt=''; //内容正文全部
+				           		if((jsonObj[k].textContent).length>144){
+				           			txt = (jsonObj[k].textContent).substring(0,144)+"<a href='javascript:void(0);' onclick='showAll(\'"+jsonObj[k].id+"\')'>显示全部</a>";
+				           		}else{
+				           			txt=jsonObj[k].textContent;
+				           		}
+				           		//====================
 						  var content='<li><div class="mytitle"><img src="${ctx }/img/pic1.png" alt="头像" />'+
 						  			'<div class="title-name">'+jsonObj[k].displayName+'</div><div class="title-time">'+
 			        		jsonObj[k].releaseTimeStr+'</div></div>'+
-			        		
-			        	
-			            '<div class="text" onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')">'+jsonObj[k].textContent+'</div>'+
-			           '<div class="photo"><div class="wImg">';
+			            	'<div class="text">'+txt+'</div><div class="photo">';
+			           		
+			           		
 			           		var content1 = '';
 				           for(var i in jsonObj[k].picList){
-				        	   content1 += '<img src="${ctx }/upload/'+jsonObj[k].picList[i] + '">';
+				        	   content1 += '<div class="wImg"><img src="${ctx }/upload/'+jsonObj[k].picList[i] + '"></div>';
 				           }
-			           
-			           
-		            	var content2 = '</div></div><div class="mybottom">'+
-			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>'
-						
+		            	var content2 = '</div><div class="mybottom">'+
+			           '<span onclick="commentNew(\''+jsonObj[k].id+'\',\''+jsonObj[k].commentNumber+'\')"><b class="list_comment"></b> <sub>评论（'+jsonObj[k].commentNumber+'）</sub></span>';
+						var content3 = '';
 						if(jsonObj[k].ifPraised==0){
-			            	var content3 = '<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
+			            	content3 = '<span onclick="laud(\''+jsonObj[k].id+'\',this)"><b id="laud" class="list_laud"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>'; 
 						}else{
-							var content3 = '<span><b id="laud" class="list_lauded"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>';
+							content3 = '<span><b id="laud" class="list_lauded"></b><sub> 赞（'+jsonObj[k].praiseNumber+'）</sub></span></div></li>';
 						}
 						     
 			            	$("#thelist").append(content+content1+content2+content3);

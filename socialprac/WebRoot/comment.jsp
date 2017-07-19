@@ -12,6 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>正文 - USTB社会实践</title>
+		<link rel="stylesheet" href="${ctx }/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="${ctx }/css/zoomify.min.css">
 		<link rel="stylesheet" href="${ctx }/assets/agile/css/agile.layout.css">
 		<link rel="stylesheet" href="${ctx }/assets/agile/css/flat/flat.component.css">
 		<link rel="stylesheet" href="${ctx }/assets/agile/css/flat/flat.color.css">
@@ -20,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="${ctx }/assets/agile/css/flat/animate.css">
 		<link rel="stylesheet" href="${ctx }/assets/component/timepicker/timepicker.css">
 		<link rel="stylesheet" href="${ctx }/assets/app/css/app.css">
+		
 		<link rel="stylesheet" href="${ctx }/css/myStyle.css">
 		<link rel="stylesheet" href="${ctx }/css/myComment.css">
 	</head>
@@ -29,8 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<section id="list_section" data-role="section" class="active">
 				<header>
 				    <div class="titlebar">
-				    	<a data-toggle="back" href="${ctx}/status/list"><i class="iconfont iconline-arrow-left"></i></a>
-				    	<h1>正文</h1>
+				    	<!-- data-toggle="back"返回 back（-1） -->
+				    	<a href="${ctx}/status/list"><i class="iconfont iconline-arrow-left"></i></a>
+				    	<h1 style="margin-top:0">正文</h1>
 				    </div>
 				</header>
 				<article data-role="article" id="main_article" data-scroll="verticle" class="active" style="top:44px;bottom:0px;">
@@ -48,7 +52,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				            </div>
 				            <div class="photo">
 								<c:forEach items="${obj.picList}" var="pic" >
-									<img src="${ctx }/upload/${pic}">
+									<div class="wImg">
+								         <img src="${ctx }/upload/${pic}">
+								   </div>        	
+									
 								</c:forEach>	
 							</div>
 						</div>
@@ -98,6 +105,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="${ctx }/assets/component/timepicker/agile.timepicker.js"></script>	
 		<script type="text/javascript" src="${ctx }/assets/component/extend.js"></script>
 		<script type="text/javascript" src="${ctx }/assets/app/js/app.js"></script>
+		<script src="${ctx }/js/jquery.min.js"></script>
+		<script src="${ctx }/js/zoomify.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$(".photo img").zoomify();
+		});
+			
+		</script>
 		<script>
 			$(function(){
 				var textarea_height=$(".idea").offset().top;
