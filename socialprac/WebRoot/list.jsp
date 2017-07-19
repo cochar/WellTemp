@@ -70,7 +70,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									        		</c:otherwise>
 								        		</c:choose>
 								        		<div class="title-time">
-								        		<fmt:formatDate value="${it.releaseTime}" type="both" pattern="yyyy-MM-dd  hh:mm"/>
+								        		<%-- <fmt:formatDate value="${it.releaseTimeStr}" type="both" pattern="yyyy-MM-dd  hh:mm"/> --%>
+								        			${it.releaseTimeStr }
 								        		</div>
 								        	</div>
 								            <div class="text" onclick="commentNew(${it.id},${it.commentNumber})">

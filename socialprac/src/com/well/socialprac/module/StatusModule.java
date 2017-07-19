@@ -86,6 +86,7 @@ public class StatusModule extends BaseModule {
 			ps.setIfPraised(0);
 			str = ps.getPhotoPath();
 			ps.setPicList(stringToJson(str));
+			ps.setReleaseTimeStr(sdf.format(ps.getReleaseTime()));
 			if(null!=dao.fetch(PraiseMap.class,Cnd.where("statusId","=",ps.getId()).and("userId","=",userId)))
 				ps.setIfPraised(1);
 		}
