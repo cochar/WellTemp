@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<link rel="stylesheet" href="${ctx }/css/bootstrap-grid.min.css">
 		<link rel="stylesheet" href="${ctx }/css/zoomify.min.css">
-		<link rel="stylesheet" href="${ctx }/css/myStyle.css">
+		<link rel="stylesheet" href="${ctx }/css/myStyle.css?v=20170720">
 		<!--iscroll 滚动插件 -->
 		<script type="application/javascript" src="${ctx }/isrcoll/iscroll.js"></script>
 		<link rel="stylesheet" href="${ctx }/isrcoll/scrollbar.css">  
@@ -135,9 +135,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<c:forEach items="${obj.teamList}" var="team" varStatus="row">	
 								<li>
 									<sub class="team-num">${row.count}</sub>
-									<b class="team-num-name">${fn:substringAfter(team.name,"北京科技大学")}</b>
+									
+										<c:if test="${fn:length(team.name)>19}">  
+										    <b class="team-num-name">
+										    <marquee direction="left" behavior="scroll" style="margin:0" scrollamount="2" scrolldelay="0" loop="-1" width="100%" height="35px" >
+										    	${fn:substringAfter(team.name,"北京科技大学")}
+										    </marquee>
+										    </b>       
+										 </c:if>  
+										 <c:if test="${fn:length(team.name)<=19}">
+										 	<b class="team-num-name">${fn:substringAfter(team.name,"北京科技大学")}</b>
+										 </c:if>
 									<span class="team-num-jf">${team.score}</span>
 								</li>
+								<div style="clear:both"></div>
 								</c:forEach>
 							</ul>
 						</div>
@@ -170,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<article data-role="article" id="group_article" data-scroll="verticle" style="top:88px;bottom:0px;">
 					<div class="scroller">
 						<div class="team">
-			        		<img src="${ctx }/img/pic.png" alt="头像" />
+			        		<img src="${ctx }/img/pic1.png" alt="头像" />
 			        		<span class="teamName">${obj.user.displayName}</span>
 			        		
 			        	</div>
@@ -215,13 +226,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="${ctx }/assets/component/extend.js"></script>
 		<script type="text/javascript" src="${ctx }/assets/app/js/app.js"></script>
 		<script src="${ctx }/js/jquery.min.js"></script>
-		<script src="${ctx }/js/zoomify.min.js"></script>
-		<script type="text/javascript">
-		$(function(){
-			$(".photo img").zoomify();
-		});
-			
-		</script>
+		
 		<script>
 		
 			function go(){
@@ -409,7 +414,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  /*   alert(k + " : " + jsonObj[k].textContent); */
 							  	var txt=''; //内容正文全部
 				           		if((jsonObj[k].textContent).length>144){
-				           			txt = (jsonObj[k].textContent).substring(0,144)+"<a href='javascript:void(0);' onclick='showAll(\'"+jsonObj[k].id+"\')'>显示全部</a>";
+				           			txt = (jsonObj[k].textContent).substring(0,144)+"...<a href='javascript:void(0);' onclick='showAll(\'"+jsonObj[k].id+"\')'>显示全部</a>";
 				           		}else{
 				           			txt=jsonObj[k].textContent;
 				           		}
@@ -451,6 +456,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		} */
 		
+		</script>
+		<script src="${ctx }/js/zoomify.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$(".wImg img").zoomify();
+		});
+			
 		</script>
 	</body>
 </html>

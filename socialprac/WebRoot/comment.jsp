@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    	<h1 style="margin-top:0">正文</h1>
 				    </div>
 				</header>
-				<article data-role="article" id="main_article" data-scroll="verticle" class="active" style="top:44px;bottom:0px;">
+				<article data-role="article" id="main_article"  class="active" style="top:44px;bottom:0px;">
 					<div class="scroller" style="background:#eee"> 
 						<div class="comment_text">
 							<div class="mytitle">

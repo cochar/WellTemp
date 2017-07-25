@@ -20,7 +20,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @Ok("json")
 @Fail("jsp:jsp.500")
 @SetupBy(MainSetup.class)
-@Filters(@By(type=CheckSession.class, args={"user", "/login.jsp"}))
+@Filters(@By(type=CheckSession.class, args={"user", "/QRCode.jsp"}))
 public class MainModule {
 
 }

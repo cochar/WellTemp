@@ -2,6 +2,7 @@ body{
 	background:#8F8F94;
 	 font-family: 微软雅黑;
 }
+.tabbar a{text-decoration:none }
 .mylist {
 	/*border: 1px solid red;*/
 	margin-top: 2px;
@@ -110,14 +111,15 @@ body{
 	width:96px;
 	height:96px;
 	display:inline-block;
-	margin-right:5px;
+	margin-left:5px;
 	
 }
 .photo img{
 	/*  width:auto;
 	 height:auto; */
 	 max-width:100%;
-	 max-height:100%;
+	 max-height:96px;
+	 overflow:hidden;
 	/* border:1px solid red; */
 }
 
@@ -202,10 +204,11 @@ body{
 }
 .rank-team ul li{
 	height:40px;
-	line-height:40px;
+	line-height:39px;
 	border-bottom:1px dashed #eee;
 }
 .team-num{
+	display:inline-block;
 	width: 15px; 
     height: 14px;
     margin-top:13px;
@@ -219,9 +222,13 @@ body{
     border-radius:2px;
 }
 .team-num-name{
-	 float:left;
-		margin-left:10px;
-		font-weight:normal;
+	display:inline-block;
+	float:left;
+	margin-left:8px;
+	font-weight:normal;
+	width:78%;
+		
+		/* border:1px solid red; */
 }
 .team-num-jf{
 	 float:right;

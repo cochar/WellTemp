@@ -9,7 +9,7 @@
 		<meta content="yes" name="apple-mobile-web-app-capable" />
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
-		<link rel="stylesheet" href="${ctx}/css/myLogin.css">
+		<link rel="stylesheet" href="${ctx}/css/myLogin.css?v=20170720">
 		
 	</head>
 	<body>
@@ -33,6 +33,11 @@
 			</form>	
 				<h3>没有帐号？&nbsp;<a href="register.jsp">去注册</a></h3>
 				
+			</div>
+			<div class="gonggao">
+				<p>
+					由于系统原因，无法登录的游客用户请尝试以昵称作为用户名填写进行登录！
+				</p>
 			</div>
 		</div>
 		<script type="text/javascript" src="${ctx }/js/jquery.min.js"></script>
